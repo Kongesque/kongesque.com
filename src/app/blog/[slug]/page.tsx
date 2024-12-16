@@ -24,20 +24,12 @@ export async function generateMetadata({ params }: PageProps) {
       publishedTime,
       type: "article",
       url: `https://www.kongesque.com/blog/${post.slug}`,
-      images: [
-        {
-          url: `https://www.kongesque.com/og/blog?title=${post.metadata.title}`,
-        },
-      ],
     },
     twitter: {
       title: post.metadata.title,
       description: post.metadata.description,
       card: "summary_large_image",
       creator: "@kongesque",
-      images: [
-        `https://www.kongesque.com/og/blog?title=${post.metadata.title}&top=${publishedTime}`,
-      ],
     },
   }
 }

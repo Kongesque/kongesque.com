@@ -8,9 +8,14 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ["var(--font-geist-mono)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "#21b8cd",
+        paleSilver: 'var(--pale-silver)',
       },
     },
   },

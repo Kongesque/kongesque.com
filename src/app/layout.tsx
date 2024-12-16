@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     siteName: "Kongesque",
     locale: "en_US",
     type: "website",
-    images: ["https://www.kongesque.com/og/home"],
   },
   robots: {
     index: true,

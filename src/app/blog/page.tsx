@@ -23,11 +23,4 @@ export default async function BlogPage() {
 export const metadata: Metadata = {
   title: "Kongesque Blog",
   description: "Writings on programming, computer science, and more.",
-  openGraph: {
-    images: [
-      {
-        url: "https://www.kongesque.com/og/home?title=blog",
-      },
-    ],
-  },
 }

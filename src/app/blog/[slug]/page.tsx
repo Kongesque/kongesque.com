@@ -54,9 +54,6 @@ export default async function Post({ params }: PageProps) {
             datePublished: post.metadata.date,
             dateModified: post.metadata.date,
             description: post.metadata.description,
-            image: `https://www.kongesque.com/og/blog?title=${
-              post.metadata.title
-            }&top=${formatDate(post.metadata.date)}`,
             url: `https://www.kongesque.com/blog/${post.slug}`,
             author: {
               "@type": "Person",

@@ -17,7 +17,7 @@ export type MDXFileData = FrontmatterParseResult & {
 }
 
 export function getPosts(): MDXFileData[] {
-  return getMDXData(path.join(process.cwd(), "posts"))
+  return getMDXData(path.join(process.cwd(), "src", "posts"))
 }
 
 export function getPostBySlug(slug: string): MDXFileData | null {

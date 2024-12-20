@@ -9,10 +9,10 @@ const links = [
 export function Footer() {
   return (
     <section className="animate-fade-in-up">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-paleSilver">
+      <h2 className="text-2xl font-bold mb-6 flex items-center text-primary">
         <span className="text-accent mr-2">*</span> links
       </h2>
-      <div className="flex flex-wrap gap-4 text-sm">
+      <div className="flex flex-wrap gap-4 text-sm text-secondary">
         {links.map((link, index) => (
           <Link
             key={index}

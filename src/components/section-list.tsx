@@ -24,18 +24,18 @@ export function SectionList({
 }: SectionListProps) {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-paleSilver">
+      <h2 className="text-2xl font-bold mb-6 flex items-center text-primary">
         <span className="text-accent mr-2">*</span> {title}
       </h2>
       <div className="space-y-8">
         {items.map((item, index) => (
           <div key={item.title} className="group">
             <Link href={item.href} target="_blank">
-              <h3 className="text-xl font-semibold mb-1 text-paleSilver group-hover:text-accent transition-colors duration-200">
+              <h3 className="text-xl font-semibold mb-1 text-primary group-hover:text-accent transition-colors duration-200">
                 {item.title}
               </h3>
-              <p className="text-sm mb-2"> {item.role} {item.period && `(${item.period})`} </p>
-              <p className="">{item.description}</p>
+              <p className="text-sm mb-2 text-secondary"> {item.role} {item.period && `(${item.period})`} </p>
+              <p className="text-secondary">{item.description}</p>
             </Link>
           </div>
         ))}
@@ -43,7 +43,7 @@ export function SectionList({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="inline-flex items-center gap-1 mt-6 text-paleSilver hover:text-accent hover:underline group"
+          className="inline-flex items-center gap-1 mt-6 text-secondary hover:underline hover:decoration-secondaryHover group"
         >
           {viewAllText}{" "}
           <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />

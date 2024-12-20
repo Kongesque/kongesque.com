@@ -11,6 +11,11 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const bg = "#202222";
+    const primary = "#e8e8e6";
+    const secondary = "#8c9191";
+    const accent = "#21b8cd";
+
     if (typeof window !== "undefined" && canvasRef.current) {
         let blocksX = 40, blocksY = 20;
         let maxBlocks = 1000,
@@ -82,8 +87,8 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
         p.windowResized = windowResized;
         p.draw = () => {
             if (!pause) {
-            p.background("#202222");
-            p.stroke("#202222");
+            p.background(bg);
+            p.stroke(bg);
             p.strokeWeight(1);
             p.fill(20);
             p.rect(0, 0, p.width, yOffset);
@@ -92,7 +97,7 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
             p.rect(p.width, p.height, -xOffset, -p.height);
 
             if (text) {
-                p.fill("#8c9191"); // Set text color to white
+                p.fill(secondary);
                 p.textAlign(p.CENTER, p.CENTER);
                 p.textFont('Geist Mono');
                 p.textSize(64);
@@ -162,7 +167,7 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
             }
             show() {
             p.noStroke();
-            p.fill("#e8e8e6");
+            p.fill(primary);
             p.ellipse(this.x * blockSize + blockSize / 2, this.y * blockSize + blockSize / 2, blockSize - outlineLength * 2, blockSize - outlineLength * 2);
             p.rect(
                 (this.x + this.tailBlocks[this.tailBlocks.length - 1].x) * blockSize / 2 + outlineLength,
@@ -302,7 +307,7 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
             }
             show() {
             p.noStroke();
-            p.fill("#21b8cd");
+            p.fill(accent);
             p.push();
             p.translate(this.x * blockSize + outlineLength, this.y * blockSize + outlineLength);
             p.ellipse(blockSize / 2, blockSize / 2, blockSize - 2 * outlineLength, blockSize - 2 * outlineLength);
@@ -573,7 +578,7 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
   };
 
   return (
-    <div className="w-full bg-[#202222] rounded-md border-[0px] border-[#3d3f40]" style={aspectRatioStyle} id="snake-game-container">
+    <div className="w-full bg-blockBg rounded-md border-[0px] border-blockBorder" style={aspectRatioStyle} id="snake-game-container">
       <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ width: '100%', height: '100%' }}></div>
     </div>
   );

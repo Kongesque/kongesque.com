@@ -1,9 +1,10 @@
 "use client";
+
 import "../app/globals.css";
 import dynamic from 'next/dynamic';
-import SnakeGame from "@/components/snake";
+// import SnakeGame from "@/components/snake";
 
-// const SnakeGame = dynamic(() => import('@/components/snake'), { ssr: false });
+const SnakeGame = dynamic(() => import('@/components/snake'), { ssr: false });
 
 export function Header() {
     return (

@@ -15,12 +15,43 @@ export default async function BlogPage() {
         blog
       </h1>
 
+      <p className="hidden sm:block text-sm text-gray-400 mb-8">
+        press{" "}
+        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
+          /
+        </kbd>{" "}
+        to search • use{" "}
+        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
+          ctrl / ⌘ j
+        </kbd>{" "}
+        and{" "}
+        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
+          ctrl / ⌘ k
+        </kbd>{" "}
+        or{" "}
+        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
+          ↑
+        </kbd>{" "}
+        and{" "}
+        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
+          ↓
+        </kbd>{" "}
+        to navigate
+      </p>
+
       <PostsList posts={posts} />
     </main>
   )
 }
 
 export const metadata: Metadata = {
-  title: "Kongesque Blog",
+  title: "Blog",
   description: "Writings on programming, computer science, and more.",
+  openGraph: {
+    images: [
+      {
+        url: "https://www.kongesque.com/og/home?title=blog",
+      },
+    ],
+  },
 }

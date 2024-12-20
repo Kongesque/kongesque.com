@@ -4,24 +4,26 @@ import "./globals.css";
 import { Navbar } from "../components/navbar"
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+  display: "swap",
+  variable: "--font-geist-mono",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kongesque.com"),
   title: {
-    default: "Kongesque",
-    template: "%s | Kongesque",
+    default: "kongesque",
+    template: "%s | kongesque",
   },
   description: "Developer, cardist and maker of things.",
   openGraph: {
-    title: "Kongesque",
+    title: "kongesque",
     description: "Developer, cardist and maker of things.",
     url: "https://www.kongesque.com",
-    siteName: "Kongesque",
+    siteName: "kongesque",
     locale: "en_US",
     type: "website",
+    images: ["https://www.kongesque.com/og/home"],
   },
   robots: {
     index: true,
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     "max-snippet": -1,
   },
   twitter: {
-    title: "Kongesque",
+    title: "kongesque",
     card: "summary_large_image",
     creator: "@kongesque",
   },

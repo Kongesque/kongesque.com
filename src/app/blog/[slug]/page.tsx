@@ -24,12 +24,20 @@ export async function generateMetadata({ params }: PageProps) {
       publishedTime,
       type: "article",
       url: `https://www.kongesque.com/blog/${post.slug}`,
+      images: [
+        {
+          url: `https://www.kongesque.com/og/blog?title=${post.metadata.title}`,
+        },
+      ],
     },
     twitter: {
       title: post.metadata.title,
       description: post.metadata.description,
       card: "summary_large_image",
       creator: "@kongesque",
+      images: [
+        `https://www.kongesque.com/og/blog?title=${post.metadata.title}&top=${publishedTime}`,
+      ],
     },
   }
 }
@@ -54,10 +62,13 @@ export default async function Post({ params }: PageProps) {
             datePublished: post.metadata.date,
             dateModified: post.metadata.date,
             description: post.metadata.description,
-            url: `https://www.kongesque.com/blog/${post.slug}`,
+            image: `https://kongesque.com/og/blog?title=${
+              post.metadata.title
+            }&top=${formatDate(post.metadata.date)}`,
+            url: `https://kongesque.com/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: "Shoubhit Dash",
+              name: "Kongesque",
             },
           }),
         }}

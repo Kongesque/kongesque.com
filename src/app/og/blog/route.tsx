@@ -57,15 +57,15 @@ export async function GET(request: Request) {
             maxWidth: "90%",
           }}
         >
-          <span
+            <span
             style={{
-              color: "#ff6b35",
+              color: "var(--accent)",
               fontSize: 48,
               flexShrink: 0,
             }}
-          >
+            >
             *
-          </span>
+            </span>
           <h1
             style={{
               fontSize: 48,

@@ -10,7 +10,7 @@ export default function NotFound() {
     return (
         <div className="flex flex-col items-center justify-center" style={{ height: `calc(100vh - 14rem)` }}>
             <div className="text-center">
-                <SnakeGame text={true} aspectRatio="2.35/1"/>
+                <SnakeGame text={true} height="14rem"/>
                 <p className="mt-8 mb-4">
                     Oops! Looks like you got lost. The snake couldn't find this page.
                 </p>

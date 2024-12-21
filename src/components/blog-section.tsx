@@ -21,7 +21,7 @@ export function BlogSection() {
           <div key={index} className="flex justify-between items-center group">
             <Link
               href={`/blog/${post.slug}`}
-              className="text-secondary hover:text-accent transition-colors duration-200"
+              className="text-primary hover:text-accent transition-colors duration-200"
             >
               {post.metadata.title.toLowerCase()}
             </Link>

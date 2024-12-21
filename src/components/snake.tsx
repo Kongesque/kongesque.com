@@ -4,10 +4,10 @@ import p5 from 'p5';
 
 interface SnakeGameProps {
     text?: boolean;
-    aspectRatio?: string;
+    height?: string;
   }
 
-export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: SnakeGameProps) {
+export default function SnakeGame({ text = false, height = '12rem' }: SnakeGameProps) {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -573,12 +573,12 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
 
   }, [text]);
 
-  const aspectRatioStyle = {
-    aspectRatio,
+  const heightStyle = {
+    height,
   };
 
   return (
-    <div className="w-full bg-blockBg rounded-md border-[0px] border-blockBorder" style={aspectRatioStyle} id="snake-game-container">
+    <div className="w-full bg-blockBg rounded-md border-[0px] border-blockBorder" style={heightStyle} id="snake-game-container">
       <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ userSelect: 'none' }}></div>
     </div>
   );

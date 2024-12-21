@@ -18,14 +18,16 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <SectionList
-        title="projects"
-        items={projectItems}
-        viewAllHref="/projects"
-        viewAllText="all projects"
-      />
-      <BlogSection />
-      <Footer />
+      <div className="px-5">
+        <SectionList
+          title="projects"
+          items={projectItems}
+          viewAllHref="/projects"
+          viewAllText="all projects"
+        />
+        <BlogSection />
+        <Footer />
+      </div>
     </>
   )
 }

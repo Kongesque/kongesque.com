@@ -4,7 +4,8 @@
 
 :root {
   --background: #191a1a;
-  --color-accent: #21b8cd;
+  --color-accent: #21b8cd; 
+  --color-accent-hover: #2397a8;
   --color-primary: #e8e8e6; /* Used for main titles */
   --color-secondary: #8c9191; /* Used for descriptions or subtitles */
   --color-secondary-hover: #484a4a; /* Hover effect for secondary elements (e.g., underlines) */

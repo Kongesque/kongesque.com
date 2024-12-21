@@ -14,6 +14,7 @@ export default {
       colors: {
         background: "var(--background)",
         accent: "var(--color-accent)",
+		accentHover: "var(--color-accent-hover)",
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         secondaryHover: "var(--color-secondary-hover)",

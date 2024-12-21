@@ -11,10 +11,10 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const bg = "#202222";
-    const primary = "#e8e8e6";
-    const secondary = "#8c9191";
-    const accent = "#21b8cd";
+    const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-block-bg');
+    const primary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
+    const secondary = getComputedStyle(document.documentElement).getPropertyValue('--color-secondary');
+    const accent = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
 
     if (typeof window !== "undefined" && canvasRef.current) {
         let blocksX = 40, blocksY = 20;
@@ -579,7 +579,7 @@ export default function SnakeGame({ text = false, aspectRatio = '2.35/1' }: Snak
 
   return (
     <div className="w-full bg-blockBg rounded-md border-[0px] border-blockBorder" style={aspectRatioStyle} id="snake-game-container">
-      <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ width: '100%', height: '100%' }}></div>
+      <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ userSelect: 'none' }}></div>
     </div>
   );
 }

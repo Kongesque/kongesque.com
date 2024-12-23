@@ -12,7 +12,7 @@ const SnakeGame = dynamic(() => import('@/components/snake'), { ssr: false });
 export function Header() {
     return (
         <header className="mb-16 space-y-4">
-            <SnakeGame text={false} height="10rem" />
+            <SnakeGame text={false} height="11rem" />
 
             <div className="px-4">
                 <div className="flex justify-between items-start">

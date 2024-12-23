@@ -8,9 +8,10 @@ export function Navbar() {
             <div className="flex space-x-4">
                 <Link
                     href="/"
-                    className="hover:text-accent transition-colors duration-200"
+                    className="text-accent hover:text-accentHover transition-colors duration-200 flex items-center space-x-1"
                 >
                     <Globe size={32} />
+                    <span className="font-bold text-xl text-primary transition-colors duration-200 hover:text-accentHover hidden sm:inline">kongesque</span>
                 </Link>
             </div>
             <div className="flex space-x-4">
@@ -19,13 +20,13 @@ export function Navbar() {
                     prefetch={true}
                     className="hover:text-accent transition-colors duration-200"
                 >
-                    blog
+                    Blog
                 </Link>
                 <Link
                     href="/projects"
                     className="hover:text-accent transition-colors duration-200"
                 >
-                    projects
+                    Projects
                 </Link>
             </div>
         </nav>

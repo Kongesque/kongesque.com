@@ -578,7 +578,7 @@ export default function SnakeGame({ text = false, height = '12rem' }: SnakeGameP
   };
 
   return (
-    <div className="w-full bg-blockBg rounded-md border-[0px] border-blockBorder" style={heightStyle} id="snake-game-container">
+    <div className="w-full bg-blockBg rounded-md hover:border-[1px] border-blockBorder" style={heightStyle} id="snake-game-container">
       <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ userSelect: 'none' }}></div>
     </div>
   );

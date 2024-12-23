@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import { Globe } from 'lucide-react';
 
 export function Navbar() {
     return (
@@ -9,8 +10,10 @@ export function Navbar() {
                     href="/"
                     className="hover:text-accent transition-colors duration-200"
                 >
-                    home
+                    <Globe size={32} />
                 </Link>
+            </div>
+            <div className="flex space-x-4">
                 <Link
                     href="/blog"
                     prefetch={true}

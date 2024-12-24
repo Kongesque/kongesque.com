@@ -73,7 +73,7 @@ export default async function Post({ params }: PageProps) {
       />
 
       <img
-        src={`https://www.kongesque.com/${slug}.jpg`}
+        src={`https://www.kongesque.com/cover/${slug}.jpg`}
         className="w-full h-64 object-cover mb-8 rounded-lg"
       />
       <div className="px-4">

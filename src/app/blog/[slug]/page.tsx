@@ -1,19 +1,19 @@
-import { notFound } from "next/navigation"
-import { MDX } from "./mdx"
-import { getPostBySlug } from "@/lib/blog"
+import { notFound } from "next/navigation";
+import { MDX } from "./mdx";
+import { getPostBySlug } from "@/lib/blog";
 
 type PageProps = {
-  params: Promise<{ slug: string }>
-}
+  params: Promise<{ slug: string }>;
+};
 
 export async function generateMetadata({ params }: PageProps) {
-  const slug = (await params).slug
-  const post = getPostBySlug(slug)
+  const slug = (await params).slug;
+  const post = getPostBySlug(slug);
   if (!post) {
-    return
+    return;
   }
 
-  const publishedTime = formatDate(post.metadata.date)
+  const publishedTime = formatDate(post.metadata.date);
 
   return {
     title: post.metadata.title,
@@ -39,18 +39,18 @@ export async function generateMetadata({ params }: PageProps) {
         `https://www.kongesque.com/og/blog?title=${post.metadata.title}&top=${publishedTime}`,
       ],
     },
-  }
+  };
 }
 
 export default async function Post({ params }: PageProps) {
-  const slug = (await params).slug
-  const post = getPostBySlug(slug)
+  const slug = (await params).slug;
+  const post = getPostBySlug(slug);
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
-    <section className="animate-fade-in-up">
+    <section className="animate-fade-in-up rounded-lg">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -62,9 +62,7 @@ export default async function Post({ params }: PageProps) {
             datePublished: post.metadata.date,
             dateModified: post.metadata.date,
             description: post.metadata.description,
-            image: `https://kongesque.com/og/blog?title=${
-              post.metadata.title
-            }&top=${formatDate(post.metadata.date)}`,
+            image: `https://kongesque.com/og/blog?title=${post.metadata.title}&top=${formatDate(post.metadata.date)}`,
             url: `https://kongesque.com/blog/${post.slug}`,
             author: {
               "@type": "Person",
@@ -74,20 +72,26 @@ export default async function Post({ params }: PageProps) {
         }}
       />
 
-      <h1 className="text-4xl font-bold mb-4 text-primary">
-        <span className="text-accent mr-2">*</span>
-        {post.metadata.title}
-      </h1>
+      <img
+        src={`https://www.kongesque.com/${slug}.jpg`}
+        className="w-full h-64 object-cover mb-8 rounded-lg"
+      />
+      <div className="px-4">
+        <h1 className="text-4xl font-bold mb-6 text-primary">
+          <span className="text-accent mr-2">*</span>
+          {post.metadata.title}
+        </h1>
 
-      <div className="mb-8 flex items-center justify-between text-sm text-secondary">
-        <span>{formatDate(post.metadata.date)}</span>
+        <div className="mb-6 flex items-center justify-between text-sm text-secondary">
+          <span>{formatDate(post.metadata.date)}</span>
+        </div>
+
+        <article className="prose prose-invert max-w-none prose-headings:text-primary prose-a:text-primary hover:prose-a:underline">
+          <MDX source={post.content} />
+        </article>
       </div>
-
-      <article className="prose prose-invert max-w-none prose-headings:text-primary prose-a:text-primary hover:prose-a:underline">
-        <MDX source={post.content} />
-      </article>
     </section>
-  )
+  );
 }
 
 function formatDate(date: string) {
@@ -95,5 +99,5 @@ function formatDate(date: string) {
     year: "numeric",
     month: "long",
     day: "numeric",
-  })
+  });
 }

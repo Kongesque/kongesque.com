@@ -5,13 +5,13 @@ import { Globe } from 'lucide-react';
 export function Navbar() {
     return (
         <nav className="flex items-center justify-between mb-12 text-[16px] text-secondary">
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 transition-colors duration-200">
                 <Link
                     href="/"
-                    className="text-accent hover:text-accentHover transition-colors duration-200 flex items-center space-x-1"
+                    className="text-accent flex items-center space-x-1 hover:text-accentHover group"
                 >
                     <Globe size={32} />
-                    <span className="font-bold text-xl text-primary transition-colors duration-200 hover:text-accentHover hidden sm:inline">kongesque</span>
+                    <span className="font-bold text-xl text-primary hidden sm:inline group-hover:text-accentHover">kongesque</span>
                 </Link>
             </div>
             <div className="flex space-x-4">

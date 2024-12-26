@@ -4,6 +4,7 @@
 
 :root {
   --background: #191a1a;
+  --color-line: #2b2c2d;
   --color-accent: #21b8cd; 
   --color-accent-hover: #2397a8;
   --color-primary: #e8e8e6; /* Used for main titles */

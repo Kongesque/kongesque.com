@@ -5,7 +5,7 @@ import { Globe } from 'lucide-react';
 export function Navbar() {
     return (
         <nav className="flex items-center justify-between mb-12 text-[16px] text-secondary">
-            <div className="flex space-x-4 transition-colors duration-200">
+            <div className="flex space-x-4 transition-colors duration-300">
                 <Link
                     href="/"
                     className="text-accent flex items-center space-x-1 hover:text-accentHover group"

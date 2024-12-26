@@ -1,38 +1,42 @@
-import { type MDXFileData } from "@/lib/blog"
-import Link from "next/link"
+import Image from "next/image";
+import { type MDXFileData } from "@/lib/blog";
+import Link from "next/link";
 
 type PostItemProps = {
-  post: MDXFileData
-  isSelected?: boolean
-}
+  post: MDXFileData;
+  isSelected?: boolean;
+};
 
 export function PostItem({ post, isSelected }: PostItemProps) {
   return (
-    <div
-      className={`flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 group ${
-        isSelected
-          ? "bg-gradient-to-r from-accent/10 to-transparent -mx-2 px-2 border-l-2 border-l-accent/50"
-          : ""
-      }`}
+    <Link
+      href={`/blog/${post.slug}`}
+      className="flex flex-row items-start gap-4 py-6 group"
     >
-      <Link
-        href={`/blog/${post.slug}`}
-        prefetch={true}
-        className="text-primary hover:text-accent transition-colors duration-200"
-      >
-        {post.metadata.title.toLowerCase()}
-      </Link>
-      <div className="flex items-center text-sm text-secondary shrink-0">
-        <span>
-          {new Date(post.metadata.date)
-            .toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })
-            .toLowerCase()}
-        </span>
+      <div className="flex-1 min-w-0">
+        <h2 className="text-lg sm:text-xl font-bold tracking-tight mb-1.5 sm:mb-2 mt-1.5 sm:mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">
+          {post.metadata.title}
+        </h2>
+        <p className="text-secondary line-clamp-2 text-sm sm:text-base mb-2 sm:mb-4">
+          {post.metadata.description}
+        </p>
+        <time className="text-xs sm:text-sm text-secondary">
+          {new Date(post.metadata.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </time>
       </div>
-    </div>
-  )
+      <div className="w-24 sm:w-48 h-16 sm:h-32 relative rounded-md group-hover:rounded-lg transition-all duration-300 overflow-hidden shrink-0">
+        <Image
+          alt=""
+          fill
+          src={`https://www.kongesque.com/cover/${post.slug}.jpg`}
+          sizes="(max-width: 640px) 100vw, 192px"
+          className="group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+    </Link>
+  );
 }

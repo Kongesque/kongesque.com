@@ -9,10 +9,11 @@ type PostsProps = {
 
 export function Posts({ posts }: PostsProps) {
   return (
-    <div className="space-y-8 sm:space-y-4">
-      {posts.map((item) => (
+    <div>
+      {posts.map((item, index) => (
         <div key={item.slug}>
           <PostItem post={item} isSelected={false} />
+          {index < posts.length - 1 && <hr className="border-t border-line" />}
         </div>
       ))}
     </div>

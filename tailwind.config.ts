@@ -13,6 +13,7 @@ export default {
       },
       colors: {
         background: "var(--background)",
+        line: "var(--color-line)",
         accent: "var(--color-accent)",
 		accentHover: "var(--color-accent-hover)",
         primary: "var(--color-primary)",

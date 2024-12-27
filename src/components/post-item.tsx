@@ -14,13 +14,13 @@ export function PostItem({ post, isSelected }: PostItemProps) {
       className="flex flex-row items-start gap-4 py-6 group"
     >
       <div className="flex-1 min-w-0">
-        <h2 className="text-lg sm:text-xl font-bold tracking-tight mb-1.5 sm:mb-2 mt-1.5 sm:mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">
+        <h2 className="text-xl font-bold tracking-tight mb-2 mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">
           {post.metadata.title}
         </h2>
-        <p className="text-secondary line-clamp-2 text-sm sm:text-base mb-2 sm:mb-4">
+        <p className="text-secondary line-clamp-2 text-base mb-4">
           {post.metadata.description}
         </p>
-        <time className="text-xs sm:text-sm text-secondary">
+        <time className="text-sm text-secondary">
           {new Date(post.metadata.date).toLocaleDateString("en-US", {
             month: "short",
             day: "numeric",

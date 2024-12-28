@@ -18,6 +18,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
+      
       <div className="px-4">
         <SectionList
           title="projects"

@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.variable} antialiased min-h-screen font-mono`} >
-        <div className="max-w-3xl mx-auto px-4 py-8">
+        <div className="max-w-3xl mx-auto px-4">
           <Navbar />
           {children}
           <SpeedInsights />

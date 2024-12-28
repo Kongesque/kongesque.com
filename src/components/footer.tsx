@@ -1,28 +1,21 @@
 import Link from "next/link"
-
-const links = [
-  { title: "email", href: "mailto:kongesque@gmail.com" },
-  { title: "github", href: "https://github.com/kongesque" },
-  { title: "chess.com", href: "https://www.chess.com/member/kongesque" },
-]
+import { Globe } from 'lucide-react';
 
 export function Footer() {
   return (
     <section className="animate-fade-in-up">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-primary">
-        <span className="text-accent mr-2">*</span> links
-      </h2>
-      <div className="flex flex-wrap gap-4 text-sm text-secondary">
-        {links.map((link, index) => (
+      <hr className="border-t border-line w-[calc(100%+2rem)] -mx-[1rem]" />
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-5 text-xs sm:text-sm text-primary py-8">
+        <div className="flex space-x-4">
           <Link
-            key={index}
-            href={link.href}
-            className=" hover:text-accent transition-colors duration-200"
+            href="/"
+            className="flex items-center space-x-1 hover:text-accent transition-colors duration-300"
           >
-            {link.title}
+            <Globe size={32} />
           </Link>
-        ))}
-      </div>
+        </div>
+          © 2024 Kongesque - Where the magic happens
+        </div>
     </section>
   )
 }

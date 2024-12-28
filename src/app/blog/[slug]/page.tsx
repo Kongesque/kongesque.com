@@ -74,7 +74,7 @@ export default async function Post({ params }: PageProps) {
 
       <img
         src={`https://www.kongesque.com/cover/${slug}.jpg`}
-        className="w-full h-72 object-cover mb-8 rounded-lg"
+        className="w-full h-64 object-cover mb-8 rounded-lg"
       />
       <div className="px-4">
         <h1 className="text-4xl font-bold mb-6 text-primary">

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { MDX } from "./mdx";
 import { getPostBySlug } from "@/lib/blog";
+import ShareButton from '@/components/share-button';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -49,6 +50,13 @@ export default async function Post({ params }: PageProps) {
     notFound();
   }
 
+  const handleShare = () => {
+    const text = encodeURIComponent(post.metadata.title);
+    const url = encodeURIComponent(`https://www.kongesque.com/blog/${post.slug}`);
+    const twitterUrl = `https://x.com/intent/post?text=${text}&url=${url}`;
+    window.open(twitterUrl, '_blank');
+  };
+
   return (
     <section className="animate-fade-in-up rounded-lg">
       <script
@@ -77,9 +85,20 @@ export default async function Post({ params }: PageProps) {
         className="w-full h-64 object-cover rounded-lg" 
       />
 
-      <div className="my-8 flex items-center justify-between text-sm text-secondary"> 
-          <span>Published on {formatDate(post.metadata.date)}</span>
+      <div className="flex flex-col sm:flex-row my-6 gap-4 items-start sm:items-center justify-between px-2">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-20">
+          <div className="flex flex-col items-start text-sm text-secondary gap-1"> 
+        <span className="font-bold text-xs">Written by</span>
+        <span>Kongesque</span>
+          </div>
+          <div className="flex flex-col items-start text-sm text-secondary gap-1"> 
+        <span className="font-bold text-xs">Published on</span>
+        <span>{formatDate(post.metadata.date)}</span>
+          </div>
+        </div>
+        <ShareButton title={post.metadata.title} slug={post.slug} />
       </div>
+      
 
       <hr className="border-t-2 border-line mb-8" /> 
 

@@ -74,17 +74,19 @@ export default async function Post({ params }: PageProps) {
 
       <img
         src={`https://www.kongesque.com/cover/${slug}.jpg`}
-        className="w-full h-64 object-cover mb-8 rounded-lg"
+        className="w-full h-64 object-cover rounded-lg" 
       />
-      <div className="px-4">
-        <h1 className="text-4xl font-bold mb-6 text-primary">
-          <span className="text-accent mr-2">*</span>
+
+      <div className="my-8 flex items-center justify-between text-sm text-secondary"> 
+          <span>Published on {formatDate(post.metadata.date)}</span>
+      </div>
+
+      <hr className="border-t-2 border-line mb-8" /> 
+
+      <div className="px-4"> 
+        <h1 className="text-4xl font-bold mb-8 text-primary"> 
           {post.metadata.title}
         </h1>
-
-        <div className="mb-6 flex items-center justify-between text-sm text-secondary">
-          <span>{formatDate(post.metadata.date)}</span>
-        </div>
 
         <article className="prose prose-invert max-w-none prose-headings:text-primary prose-a:text-primary hover:prose-a:underline">
           <MDX source={post.content} />
@@ -93,6 +95,7 @@ export default async function Post({ params }: PageProps) {
     </section>
   );
 }
+
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {

@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { MDX } from "./mdx";
 import { getPostBySlug } from "@/lib/blog";
-import ShareButton from '@/components/share-button';
+import CopyLinkButton from '@/components/share-button';
+import { Footer } from '@/components/footer';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -50,13 +51,6 @@ export default async function Post({ params }: PageProps) {
     notFound();
   }
 
-  const handleShare = () => {
-    const text = encodeURIComponent(post.metadata.title);
-    const url = encodeURIComponent(`https://www.kongesque.com/blog/${post.slug}`);
-    const twitterUrl = `https://x.com/intent/post?text=${text}&url=${url}`;
-    window.open(twitterUrl, '_blank');
-  };
-
   return (
     <section className="animate-fade-in-up rounded-lg">
       <script
@@ -85,18 +79,20 @@ export default async function Post({ params }: PageProps) {
         className="w-full h-64 object-cover rounded-lg" 
       />
 
-      <div className="flex flex-col sm:flex-row my-6 gap-4 items-start sm:items-center justify-between px-2">
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-20">
-          <div className="flex flex-col items-start text-sm text-secondary gap-1"> 
-        <span className="font-bold text-xs">Written by</span>
-        <span>Kongesque</span>
+      <div className="flex flex-row my-6 gap-4 items-start sm:items-center justify-between px-2">
+        <div className="flex flex-row gap-10 sm:gap-20">
+          <div className="flex flex-col items-start text-sm text-secondary gap-1">
+            <span className="font-bold text-xs">Written by</span>
+            <a href="/blog" className="text-secondary hover:underline">Kongesque</a>
           </div>
-          <div className="flex flex-col items-start text-sm text-secondary gap-1"> 
-        <span className="font-bold text-xs">Published on</span>
-        <span>{formatDate(post.metadata.date)}</span>
+          <div className="flex flex-col items-start text-sm text-secondary gap-1">
+            <span className="font-bold text-xs">Published on</span>
+            <span>{formatDate(post.metadata.date)}</span>
           </div>
         </div>
-        <ShareButton title={post.metadata.title} slug={post.slug} />
+        <div className="flex justify-center">
+          <CopyLinkButton title={post.metadata.title} slug={post.slug} />
+        </div>
       </div>
       
 
@@ -107,10 +103,12 @@ export default async function Post({ params }: PageProps) {
           {post.metadata.title}
         </h1>
 
-        <article className="prose prose-invert max-w-none prose-headings:text-primary prose-a:text-primary hover:prose-a:underline">
+        <article className="prose prose-invert max-w-none prose-headings:text-primary prose-a:text-primary hover:prose-a:underline mb-8">
           <MDX source={post.content} />
         </article>
+        <Footer />
       </div>
+     
     </section>
   );
 }
@@ -119,7 +117,7 @@ export default async function Post({ params }: PageProps) {
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long",
+    month: "short", 
     day: "numeric",
   });
 }

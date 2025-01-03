@@ -22,7 +22,7 @@ async function loadGoogleFont(font: string, text: string) {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const title = searchParams.get("title")
-  const text = title ? `kongesque • ${title}` : "kongesque • home"
+  const text = title ? `Kongesque • ${title}` : "Kongesque | Home"
 
   return new ImageResponse(
     (
@@ -34,12 +34,24 @@ export async function GET(request: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "var(--background)",
+          backgroundColor: "#191a1a",
           fontFamily: "Geist Mono",
           padding: "40px",
           position: "relative",
         }}
       >
+        <img
+          src="https://www.kongesque.com/kongesque.jpg"
+          style={{
+            position: "absolute",
+            bottom: "40px",
+            right: "40px",
+            width: "80px",
+            height: "80px",
+            borderRadius: "50%",
+          }}
+        />
+
         <div
           style={{
             display: "flex",
@@ -51,7 +63,7 @@ export async function GET(request: Request) {
           <h1
             style={{
               fontSize: 48,
-              color: "var(--color-primary)",
+              color: "#e8e8e6",
               margin: 0,
               lineHeight: 1.2,
               wordBreak: "break-word",

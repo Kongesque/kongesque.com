@@ -19,7 +19,7 @@ async function loadGoogleFont(font: string, text: string) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const title = searchParams.get("title") ?? "kongesque's blog"
+  const title = searchParams.get("title") ?? "Kongesque's Blog"
 
   return new ImageResponse(
     (
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "var(--background)",
+          backgroundColor: "#191a1a",
           fontFamily: "Geist Mono",
           padding: "40px",
           position: "relative",
@@ -60,7 +60,7 @@ export async function GET(request: Request) {
           <h1
             style={{
               fontSize: 48,
-              color: "var(--color-primary)",
+              color: "#e8e8e6",
               margin: 0,
               lineHeight: 1.2,
               wordBreak: "break-word",

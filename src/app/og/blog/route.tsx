@@ -31,7 +31,7 @@ export async function GET(request: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#111",
+          backgroundColor: "var(--background)",
           fontFamily: "Geist Mono",
           padding: "40px",
           position: "relative",
@@ -57,19 +57,10 @@ export async function GET(request: Request) {
             maxWidth: "90%",
           }}
         >
-            <span
-            style={{
-              color: "var(--accent)",
-              fontSize: 48,
-              flexShrink: 0,
-            }}
-            >
-            *
-            </span>
           <h1
             style={{
               fontSize: 48,
-              color: "#fff",
+              color: "var(--color-primary)",
               margin: 0,
               lineHeight: 1.2,
               wordBreak: "break-word",

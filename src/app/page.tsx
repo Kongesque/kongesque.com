@@ -21,10 +21,10 @@ export default function HomePage() {
       
       <div className="px-4">
         <SectionList
-          title="projects"
+          title="Projects"
           items={projectItems}
           viewAllHref="/projects"
-          viewAllText="all projects"
+          viewAllText="More projects"
         />
         <BlogSection />
         <Footer />

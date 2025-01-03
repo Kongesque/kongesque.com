@@ -24,10 +24,10 @@ export function SectionList({
 }: SectionListProps) {
   return (
     <section className="mb-16 animate-fade-in-up">
-      <h2 className="text-2xl font-bold mb-6 flex items-center text-primary">
-        <span className="text-accent mr-2">*</span> {title}
+      <h2 className="w-fit rounded-md bg-blockBg px-1.5 py-1 text-sm text-secondary">
+        {title}
       </h2>
-      <div className="space-y-8">
+      <div className="space-y-6 py-4">
         {items.map((item, index) => (
           <div key={item.title} className="group">
             <Link href={item.href} target="_blank">
@@ -43,7 +43,7 @@ export function SectionList({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="inline-flex items-center gap-1 mt-6 text-secondary hover:underline hover:decoration-secondaryHover group"
+          className="text-sm inline-flex items-center gap-1 text-secondary hover:underline hover:decoration-secondaryHover group"
         >
           {viewAllText}{" "}
           <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />

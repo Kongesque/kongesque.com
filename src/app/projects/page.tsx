@@ -24,8 +24,7 @@ export default function ProjectsPage() {
   return (
     <main className="animate-fade-in-up">
       <h1 className="text-4xl font-bold mb-8 text-primary">
-        <span className="text-accent mr-2">*</span>
-        projects
+        Projects
       </h1>
 
       <div className="space-y-12">

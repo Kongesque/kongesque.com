@@ -11,8 +11,7 @@ export default async function BlogPage() {
   return (
     <main className="animate-fade-in-up relative">
       <h1 className="text-4xl font-bold mb-8 text-primary">
-        <span className="text-accent mr-2">*</span>
-        blog
+        Blog
       </h1>
 
       <PostsList posts={posts} />

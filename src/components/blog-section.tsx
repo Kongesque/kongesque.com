@@ -14,9 +14,8 @@ const posts = getPosts()
   export function BlogSection() {
     return (
       <section className="mb-16 animate-fade-in-up">
-        <h2 className="text-2xl font-bold flex items-center text-primary">
-          <span className="text-accent mr-2">*</span>
-          blog
+        <h2 className="w-fit rounded-md bg-blockBg px-1.5 py-1 text-sm text-secondary">
+          Blog
         </h2>
   
         <div>
@@ -24,7 +23,7 @@ const posts = getPosts()
             <div key={index}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="flex flex-row items-start gap-4 py-6 group"
+                className="flex flex-row items-start gap-4 py-4 group"
               >
                 <div className="flex-1 min-w-0">
                   <h2 className="text-xl font-bold tracking-tight mb-2 mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">
@@ -58,9 +57,9 @@ const posts = getPosts()
   
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1 text-secondary hover:underline hover:decoration-secondaryHover group"
+          className="inline-flex items-center gap-1 text-sm text-secondary hover:underline hover:decoration-secondaryHover group"
         >
-          all posts{" "}
+          More posts{" "}
           <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </Link>
       </section>

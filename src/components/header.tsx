@@ -33,7 +33,7 @@ export function Header() {
                             href="https://www.chess.com/member/kongesque" 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="flex items-center justify-center w-9 h-9 border-[1px] border-blockBorder text-secondary rounded hover:text-primary transition-colors duration-200"
+                            className="hidden items-center justify-center w-9 h-9 border-[1px] border-blockBorder text-secondary rounded hover:text-primary transition-colors duration-200"
                         >
                             <Crown className="w-4 h-4" />
                         </a>

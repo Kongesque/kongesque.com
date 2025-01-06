@@ -23,7 +23,7 @@ export function SectionList({
   viewAllText,
 }: SectionListProps) {
   return (
-    <section className="mb-16 animate-fade-in-up">
+    <section className="my-16 animate-fade-in-up">
       <h2 className="w-fit rounded-md bg-blockBg px-1.5 py-1 text-sm text-secondary">
         {title}
       </h2>

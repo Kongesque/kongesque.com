@@ -64,7 +64,7 @@ export function Header() {
                 </h1>
 
                 <p className="leading-relaxed animate-fade-in-up text-primary mb-2">
-                is a creative problem solver who tackles complex challenges and games by designing solutions through proven AI algorithms, Deep Reinforcement Learning, and Computer Games Theory.
+                is a problem solver, creative thinker, curious learner, builder, designer, developer, coder, runner, explorer, tinkerer, coder, maker, day and night dreamer.
                 </p>
 
                 <div className="flex gap-1 sm:gap-4 text-secondary text-sm flex-col sm:flex-row">

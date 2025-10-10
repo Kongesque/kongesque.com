@@ -1,6 +1,7 @@
 "use client";
 
 import "../app/globals.css";
+import { useCallback, useState } from "react";
 import dynamic from 'next/dynamic';
 import Image from "next/image";
 import { Github, Send, MapPin, Landmark, Crown } from 'lucide-react';
@@ -10,9 +11,25 @@ import { Github, Send, MapPin, Landmark, Crown } from 'lucide-react';
 const SnakeGame = dynamic(() => import('@/components/snake'), { ssr: false });
 
 export function Header() {
+    const [snakeReady, setSnakeReady] = useState(false);
+
+    const handleSnakeReady = useCallback(() => {
+        setSnakeReady(true);
+    }, []);
+
     return (
         <header className="space-y-4">
-            <SnakeGame text={false} height="11rem" />
+            <div className="relative w-full" style={{ height: "11rem" }}>
+                <div
+                    className={`absolute inset-0 transition-opacity duration-200 ease-out ${snakeReady ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+                    aria-hidden="true"
+                >
+                    <div className="w-full h-full bg-blockBg rounded-md border border-transparent" />
+                </div>
+                <div className={`h-full transition-opacity duration-200 ease-out ${snakeReady ? "opacity-100" : "opacity-0"}`}>
+                    <SnakeGame text={false} height="11rem" onReady={handleSnakeReady} />
+                </div>
+            </div>
 
             <div className="px-4">
                 <div className="flex justify-between items-start">

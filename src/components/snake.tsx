@@ -5,9 +5,10 @@ import p5 from 'p5';
 interface SnakeGameProps {
     text?: boolean;
     height?: string;
+    onReady?: () => void;
   }
 
-export default function SnakeGame({ text = false, height = '12rem' }: SnakeGameProps) {
+export default function SnakeGame({ text = false, height = '12rem', onReady }: SnakeGameProps) {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,6 +29,15 @@ export default function SnakeGame({ text = false, height = '12rem' }: SnakeGameP
         hc: any,
         outlineLength = 3,
         setup_i = 0;
+
+        let readyNotified = false;
+
+        const notifyReady = () => {
+            if (!readyNotified) {
+                readyNotified = true;
+                onReady?.();
+            }
+        };
 
         const sketch = (p: p5) => {
         p.setup = () => {
@@ -59,6 +69,7 @@ export default function SnakeGame({ text = false, height = '12rem' }: SnakeGameP
             }
 
             window.addEventListener("resize", resize);
+            notifyReady();
         };
 
         const setBlocks = () => {
@@ -571,7 +582,7 @@ export default function SnakeGame({ text = false, height = '12rem' }: SnakeGameP
         };
     }
 
-  }, [text]);
+  }, [text, onReady]);
 
   const heightStyle = {
     height,

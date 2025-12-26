@@ -9,13 +9,14 @@ export function Footer() {
         <div className="flex space-x-4">
           <Link
             href="/"
+            aria-label="Home"
             className="flex items-center space-x-1 hover:text-accent transition-colors duration-300"
           >
             <Globe size={32} />
           </Link>
         </div>
-          © 2024 Kongesque - Where the magic happens
-        </div>
+        © 2024 Kongesque - Stay curious, keep learning
+      </div>
     </section>
   )
 }

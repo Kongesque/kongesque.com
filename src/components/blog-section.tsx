@@ -29,7 +29,7 @@ export function BlogSection() {
 
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1 text-sm text-secondary hover:underline hover:decoration-secondaryHover group"
+        className="inline-flex items-center gap-1 text-sm text-secondary hover:underline hover:text-accent group"
       >
         More posts{" "}
         <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />

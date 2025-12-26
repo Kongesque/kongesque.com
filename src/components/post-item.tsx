@@ -34,7 +34,6 @@ export function PostItem({ post, isSelected }: PostItemProps) {
           fill
           src={`/cover/${post.slug}.jpg`}
           sizes="(max-width: 640px) 100vw, 192px"
-          className="group-hover:scale-105 transition-transform duration-300"
         />
       </div>
     </Link>

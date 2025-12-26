@@ -16,7 +16,7 @@ export default function NotFound() {
                 </p>
                 <Link
                     href="/"
-                    className="inline-block text-secondary hover:underline hover:decoration-secondaryHover"
+                    className="inline-block text-secondary hover:underline hover:text-accent"
                 >
                     return home
                 </Link>

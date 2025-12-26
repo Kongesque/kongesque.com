@@ -43,7 +43,7 @@ export function SectionList({
       {viewAllHref && (
         <Link
           href={viewAllHref}
-          className="text-sm inline-flex items-center gap-1 text-secondary hover:underline hover:decoration-secondaryHover group"
+          className="text-sm inline-flex items-center gap-1 text-secondary hover:underline hover:text-accent group"
         >
           {viewAllText}{" "}
           <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />

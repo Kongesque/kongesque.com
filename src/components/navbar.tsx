@@ -8,6 +8,7 @@ export function Navbar() {
             <div className="flex space-x-4">
                 <Link
                     href="/"
+                    aria-label="Home"
                     className="text-accent flex items-center space-x-1 hover:text-accentHover group transition-colors duration-300"
                 >
                     <Globe size={32} />

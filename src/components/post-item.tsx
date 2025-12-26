@@ -11,7 +11,7 @@ export function PostItem({ post, isSelected }: PostItemProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="flex flex-row items-start gap-4 py-6 group"
+      className="flex flex-row items-start gap-4 py-5 group"
     >
       <div className="flex-1 min-w-0">
         <h2 className="text-xl font-bold tracking-tight mb-2 mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">

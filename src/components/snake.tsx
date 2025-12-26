@@ -101,7 +101,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                         p.background(bg);
                         p.stroke(bg);
                         p.strokeWeight(1);
-                        p.fill(20);
+                        p.fill(bg);
                         p.rect(0, 0, p.width, yOffset);
                         p.rect(0, 0, xOffset, p.height);
                         p.rect(p.width, p.height, -p.width, -yOffset);

@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og"
+import { COLORS } from "@/lib/theme"
 
 export const runtime = "edge"
 
@@ -34,7 +35,7 @@ export async function GET(request: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#191a1a",
+          backgroundColor: COLORS.background,
           fontFamily: "JetBrains Mono",
           padding: "40px",
           position: "relative",
@@ -63,7 +64,7 @@ export async function GET(request: Request) {
           <h1
             style={{
               fontSize: 48,
-              color: "#e8e8e6",
+              color: COLORS.primary,
               margin: 0,
               lineHeight: 1.2,
               wordBreak: "break-word",

@@ -30,7 +30,7 @@ export function Header() {
                 </div>
             </div>
 
-            <div className="px-4">
+            <div>
 
 
                 <h1 className="text-2xl font-bold mb-4 animate-fade-in text-primary">

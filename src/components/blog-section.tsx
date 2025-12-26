@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { getPosts } from "@/lib/blog"
-import Image from "next/image";
+import { PostItem } from "./post-item"
 
 
 export function BlogSection() {
@@ -13,7 +13,7 @@ export function BlogSection() {
     .slice(0, 4)
 
   return (
-    <section className="my-16 animate-fade-in-up">
+    <section className="my-20 animate-fade-in-up">
       <h2 className="w-fit rounded-md bg-blockBg px-1.5 py-1 text-sm text-secondary">
         Blog
       </h2>
@@ -21,35 +21,7 @@ export function BlogSection() {
       <div>
         {posts.map((post, index) => (
           <div key={index}>
-            <Link
-              href={`/blog/${post.slug}`}
-              className="flex flex-row items-start gap-4 py-4 group"
-            >
-              <div className="flex-1 min-w-0">
-                <h2 className="text-xl font-bold tracking-tight mb-2 mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">
-                  {post.metadata.title}
-                </h2>
-                <p className="text-secondary line-clamp-2 text-base mb-4">
-                  {post.metadata.description}
-                </p>
-                <time className="text-sm text-secondary">
-                  {new Date(post.metadata.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </time>
-              </div>
-              <div className="w-24 sm:w-48 h-16 sm:h-32 relative rounded-md group-hover:rounded-lg transition-all duration-300 overflow-hidden shrink-0">
-                <Image
-                  alt=""
-                  fill
-                  src={`/cover/${post.slug}.jpg`}
-                  sizes="(max-width: 640px) 100vw, 192px"
-                  className="group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </Link>
+            <PostItem post={post} />
             {index < posts.length - 1 && <hr className="border-t border-line" />}
           </div>
         ))}

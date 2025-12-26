@@ -15,12 +15,12 @@ const links = [
 
 export function LinksSection() {
     return (
-        <section className="my-16 animate-fade-in-up">
+        <section className="my-20 animate-fade-in-up">
             <h2 className="w-fit rounded-md bg-blockBg px-1.5 py-1 text-sm text-secondary">
                 Connect
             </h2>
 
-            <div className="flex gap-4 py-4">
+            <div className="flex gap-4 py-5">
                 {links.map((link) => (
                     <Link
                         key={link.name}

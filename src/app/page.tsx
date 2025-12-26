@@ -28,17 +28,15 @@ export default function HomePage() {
     <>
       <Header />
 
-      <div className="px-4">
-        <SectionList
-          title="Projects"
-          items={projectItems}
-          viewAllHref="/projects"
-          viewAllText="More projects"
-        />
-        <BlogSection />
-        <LinksSection />
-        <Footer />
-      </div>
+      <SectionList
+        title="Projects"
+        items={projectItems}
+        viewAllHref="/projects"
+        viewAllText="More projects"
+      />
+      <BlogSection />
+      <LinksSection />
+      <Footer />
     </>
   )
 }

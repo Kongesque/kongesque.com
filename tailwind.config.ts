@@ -9,13 +9,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mono: ["var(--font-geist-mono)"],
+        mono: ["var(--font-jetbrains-mono)"],
       },
       colors: {
         background: "var(--background)",
         line: "var(--color-line)",
         accent: "var(--color-accent)",
-		accentHover: "var(--color-accent-hover)",
+        accentHover: "var(--color-accent-hover)",
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
         secondaryHover: "var(--color-secondary-hover)",

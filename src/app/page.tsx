@@ -1,9 +1,18 @@
 import { Header } from "@/components/header"
 import { SectionList } from "@/components/section-list"
 import { BlogSection } from "@/components/blog-section"
+import { LinksSection } from "@/components/links-section"
 import { Footer } from "@/components/footer"
 
 const projectItems = [
+  {
+    title: "zonenet",
+    role: "creator",
+    period: "dec 2024",
+    description:
+      "Open-source AI video analytics platform with custom polygon zones (ROI), directional line crossing, and real-time object counting. Self-hosted and privacy-first.",
+    href: "https://github.com/Kongesque/zonenet",
+  },
   {
     title: "custom-region-object-counter-YOLOV8",
     role: "creator",
@@ -18,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      
+
       <div className="px-4">
         <SectionList
           title="Projects"
@@ -27,6 +36,7 @@ export default function HomePage() {
           viewAllText="More projects"
         />
         <BlogSection />
+        <LinksSection />
         <Footer />
       </div>
     </>

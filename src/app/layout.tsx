@@ -52,7 +52,9 @@ export default function RootLayout({
       <body className={`${jetbrainsMono.variable} antialiased min-h-screen font-mono`} >
         <div className="max-w-3xl mx-auto px-4 py-6">
           <Navbar />
-          {children}
+          <main>
+            {children}
+          </main>
           <SpeedInsights />
           <Analytics />
         </div>

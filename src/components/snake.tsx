@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from 'react';
-import p5 from 'p5';
+import type p5 from 'p5';
 
 interface SnakeGameProps {
     text?: boolean;
@@ -17,7 +17,13 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
         const secondary = getComputedStyle(document.documentElement).getPropertyValue('--color-secondary');
         const accent = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
 
-        if (typeof window !== "undefined" && canvasRef.current) {
+        let p5Instance: p5 | undefined;
+
+        const initGame = async () => {
+            if (typeof window === "undefined" || !canvasRef.current) return;
+
+            const p5Module = await import('p5');
+            const p5 = p5Module.default;
             let blocksX = 40, blocksY = 20;
             let maxBlocks = 1000,
                 blockSize: number,
@@ -575,13 +581,14 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     }
                 }
             };
-            const p5Instance = new p5(sketch, canvasRef.current);
+            p5Instance = new p5(sketch, canvasRef.current);
+        };
 
-            return () => {
-                p5Instance.remove();
-            };
-        }
+        initGame();
 
+        return () => {
+            p5Instance?.remove();
+        };
     }, [text, onReady]);
 
     const heightStyle = {

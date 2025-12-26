@@ -75,8 +75,8 @@ export default async function Post({ params }: PageProps) {
       />
 
       <img
-        src={`https://www.kongesque.com/cover/${slug}.jpg`}
-        className="w-full h-64 object-cover rounded-lg" 
+        src={`/cover/${slug}.jpg`}
+        className="w-full h-64 object-cover rounded-lg"
       />
 
       <div className="flex flex-row my-6 gap-4 items-start sm:items-center justify-between px-2">
@@ -94,12 +94,12 @@ export default async function Post({ params }: PageProps) {
           <CopyLinkButton title={post.metadata.title} slug={post.slug} />
         </div>
       </div>
-      
 
-      <hr className="border-t-2 border-line mb-8" /> 
 
-      <div className="px-4"> 
-        <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-primary"> 
+      <hr className="border-t-2 border-line mb-8" />
+
+      <div className="px-2">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-primary">
           {post.metadata.title}
         </h1>
 
@@ -108,7 +108,7 @@ export default async function Post({ params }: PageProps) {
         </article>
         <Footer />
       </div>
-     
+
     </section>
   );
 }
@@ -117,7 +117,7 @@ export default async function Post({ params }: PageProps) {
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "short", 
+    month: "short",
     day: "numeric",
   });
 }

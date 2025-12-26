@@ -1,0 +1,55 @@
+---
+title: "Introducing ZoneNet"
+description: "Meet ZoneNet: A privacy-first, open-source tool for real-time object counting. Run powerful AI analytics on your own hardware without the cloud fees."
+date: "2025-12-27"
+---
+
+I've always been fascinated by computer vision, but the existing tools always felt like a compromise. You either pay exorbitant monthly fees for enterprise software, or you hand over your video feeds to a cloud server you don't control.
+
+That didn't sit right with me. I wanted something that was powerful, looked good, and most importantly—**ran entirely on my own metal.**
+
+So, I built **ZoneNet**.
+
+[Check it out on GitHub](https://github.com/Kongesque/zonenet)
+
+## Why ZoneNet?
+
+ZoneNet is an open-source project that brings professional-grade object counting and video analytics to **EVERYONE**. It's not just a script; it's a full-stack application designed to be easy to set up and even easier to use.
+
+Under the hood, it’s combining the incredible speed of **YOLO11** with **ByteTrack** for tracking. But you don't need to be an ML engineer to use it. You just spin it up, connect a camera, and start gathering data.
+
+## The "Cool" Stuff (Features)
+
+### 🎨 Draw Your Own Zones
+This is my favorite part. Every camera angle is unique, right? A reckless driver in a parking lot or a customer walking down a specific aisle—you can't capture that with a generic box.
+ZoneNet lets you draw customizable **polygon zones** directly on the video feed. You can count exactly what happens in *that specific corner* of the frame.
+
+### 🔒 Privacy by Default
+I'm a huge believer in data privacy. With ZoneNet, **what happens on your network, stays on your network.**
+There is no "cloud upload" feature. All processing happens locally on your CPU or GPU. Whether you're monitoring your home, a retail store, or a private facility, your footage never leaves your hardware.
+
+### ⚡ Real-Time, For Real
+We're using **Next.js 15** for the dashboard, and it feels *snappy*. You get instant feedback on tracking, current occupancy counts, and dwell times. It’s mesmerizing to watch the analytics update live as objects move through the frame.
+
+## What Can You Actually Do With It?
+
+I built this to be versatile. Here are a few improved ways people are using it:
+
+*   **Retail Analytics:** analyzing which store displays get the most attention (dwell time).
+*   **Smart Home:** counting how many cars pass by your driveway per hour.
+*   **Safety:** creating "danger zones" around machinery that trigger alerts if someone steps inside.
+
+## The Tech Stack
+
+For my fellow developers, here is what makes it tick:
+
+*   **Frontend:** Next.js 15 (App Router), React 19, Tailwind CSS v4
+*   **Backend:** FastAPI (Python 3.10+)
+*   **AI:** YOLO11, ByteTrack, OpenCV
+*   **Infrastructure:** Fully Dockerized
+
+## Give It a Spin
+
+ZoneNet is open source and free. I'd love for you to try it out, break it, and tell me what you think.
+
+Happy counting!

@@ -32,7 +32,7 @@ export function PostItem({ post, isSelected }: PostItemProps) {
         <Image
           alt=""
           fill
-          src={`https://www.kongesque.com/cover/${post.slug}.jpg`}
+          src={`/cover/${post.slug}.jpg`}
           sizes="(max-width: 640px) 100vw, 192px"
           className="group-hover:scale-105 transition-transform duration-300"
         />

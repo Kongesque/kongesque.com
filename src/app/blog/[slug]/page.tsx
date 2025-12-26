@@ -70,6 +70,11 @@ export default async function Post({ params }: PageProps) {
             author: {
               "@type": "Person",
               name: "Kongesque",
+              url: "https://www.kongesque.com",
+              sameAs: [
+                "https://github.com/Kongesque",
+                "https://twitter.com/kongesque"
+              ]
             },
           }),
         }}

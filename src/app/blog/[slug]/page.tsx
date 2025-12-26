@@ -3,6 +3,7 @@ import { MDX } from "./mdx";
 import { getPostBySlug } from "@/lib/blog";
 import CopyLinkButton from '@/components/share-button';
 import { Footer } from '@/components/footer';
+import Image from "next/image";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -74,8 +75,12 @@ export default async function Post({ params }: PageProps) {
         }}
       />
 
-      <img
+      <Image
         src={`/cover/${slug}.jpg`}
+        alt={post.metadata.title}
+        width={1200}
+        height={630}
+        priority
         className="w-full h-64 object-cover rounded-lg"
       />
 

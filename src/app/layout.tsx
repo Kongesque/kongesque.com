@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     template: "%s | kongesque",
   },
   description: "Developer, cardist and maker of things.",
+  keywords: ["Developer", "Portfolio", "Next.js", "React", "Cardist", "Maker", "Software Engineer"],
+  authors: [{ name: "Kongesque", url: "https://www.kongesque.com" }],
+  alternates: {
+    canonical: "https://www.kongesque.com",
+  },
   openGraph: {
     title: "kongesque",
     description: "Developer, cardist and maker of things.",

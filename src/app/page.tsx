@@ -26,6 +26,27 @@ const projectItems = [
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "kongesque",
+            url: "https://www.kongesque.com",
+            author: {
+              "@type": "Person",
+              name: "Kongesque",
+              url: "https://www.kongesque.com",
+              sameAs: [
+                "https://github.com/Kongesque",
+                "https://twitter.com/kongesque"
+              ]
+            }
+          }),
+        }}
+      />
       <Header />
 
       <SectionList

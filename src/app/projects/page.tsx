@@ -3,6 +3,23 @@ import { Metadata } from "next"
 
 const projects = [
   {
+    title: "zonenet",
+    description:
+      "Open-source AI video analytics platform with custom polygon zones (ROI), directional line crossing, and real-time object counting. Self-hosted and privacy-first with support for 80+ COCO classes.",
+    role: "creator",
+    period: "dec 2024",
+    technologies: [
+      "next.js 15",
+      "fastapi",
+      "yolo11",
+      "bytetrack",
+      "opencv",
+      "docker",
+      "tailwind",
+    ],
+    href: "https://github.com/Kongesque/zonenet",
+  },
+  {
     title: "custom-region-object-counter-YOLOV8",
     description:
       "A web app for detecting and counting objects in videos using YOLOv8 for detection and ByteTrack for tracking, with customizable regions of interest (ROIs) function.",

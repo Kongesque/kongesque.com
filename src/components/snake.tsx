@@ -64,7 +64,8 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     // Recalculate everything based on current p.width/height (which might remain same or change)
                     blockSize = Math.min(p.width / blocksX, p.height / blocksY);
                     outlineLength = blockSize / 15;
-                    yOffset = xOffset = 0; // Centering usually handled in draw translation or here? 
+                    xOffset = (p.width - blockSize * blocksX) / 2;
+                    yOffset = (p.height - blockSize * blocksY) / 2;
 
                     // If this is a RESTART (game over or full resize reset):
                     s = new Snake(p);

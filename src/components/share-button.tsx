@@ -19,7 +19,10 @@ const CopyLinkButton: React.FC<CopyLinkButtonProps> = ({ title, slug }) => {
         try {
             await navigator.clipboard.writeText(url);
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+            setTimeout(() => {
+                setCopied(false);
+                setShowTooltip(false);
+            }, 2000); // Reset and hide tooltip after 2 seconds
         } catch (err) {
             console.error("Failed to copy: ", err);
         }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import type p5 from 'p5';
 
 interface SnakeGameProps {
@@ -10,6 +10,7 @@ interface SnakeGameProps {
 
 export default function SnakeGame({ text = false, height = '12rem', onReady }: SnakeGameProps) {
     const canvasRef = useRef<HTMLDivElement>(null);
+    const [isSpeedUp, setIsSpeedUp] = useState(false);
 
     useEffect(() => {
         const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-block-bg');
@@ -75,10 +76,11 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                 };
 
                 // Moved out of setup
-                let isSpeedUp = false;
+                let speedUp = false;
                 const toggleSpeed = () => {
-                    isSpeedUp = !isSpeedUp;
-                    speedMultiplier = isSpeedUp ? 10 : 1;
+                    speedUp = !speedUp;
+                    speedMultiplier = speedUp ? 10 : 1;
+                    setIsSpeedUp(speedUp);
                 };
 
                 // Initialize listeners once
@@ -148,7 +150,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                             p.textSize(64);
                             p.text("404", p.width / 2, p.height / 2 - 20);
                             p.textSize(32);
-                            p.text("page not found", p.width / 2, p.height / 2 + 30);
+                            p.text("Page Not Found", p.width / 2, p.height / 2 + 30);
                         }
 
                         p.push();
@@ -624,7 +626,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
     };
 
     return (
-        <div className="w-full group p-6 transition-all duration-300 border border-blockBorder hover:border-accent bg-blockBg hover:bg-blockHover rounded-lg" style={heightStyle} id="snake-game-container">
+        <div className={`w-full group p-6 transition-all duration-300 border ${isSpeedUp ? 'border-accent' : 'border-blockBorder hover:border-accent'} bg-blockBg hover:bg-blockHover rounded-lg`} style={heightStyle} id="snake-game-container">
             <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ userSelect: 'none' }}></div>
         </div>
     );

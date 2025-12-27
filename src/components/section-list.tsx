@@ -31,7 +31,7 @@ export function SectionList({
         {items.map((item, index) => (
           <div key={item.title} className="group">
             <Link href={item.href} target="_blank">
-              <h3 className="text-xl font-semibold mb-2 text-primary group-hover:text-accent transition-colors duration-200">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-primary group-hover:text-accent transition-colors duration-200">
                 {item.title}
               </h3>
               <p className="text-sm mb-2 text-secondary"> {item.role} {item.period && `(${item.period})`} </p>

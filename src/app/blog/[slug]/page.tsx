@@ -115,7 +115,7 @@ export default async function Post({ params }: PageProps) {
           {post.metadata.title}
         </h1>
 
-        <article className="prose prose-invert max-w-none prose-headings:text-primary prose-a:text-primary hover:prose-a:underline mb-8">
+        <article className="prose prose-invert max-w-none prose-headings:text-primary mb-8">
           <MDX source={post.content} />
         </article>
         <Footer />

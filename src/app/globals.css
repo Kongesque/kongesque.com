@@ -5,15 +5,22 @@
 :root {
   --background: #191a1a;
   --color-line: #2b2c2d;
-  --color-accent: #21b8cd; 
+  --color-accent: #21b8cd;
   --color-accent-hover: #2397a8;
-  --color-primary: #e8e8e6; /* Used for main titles */
-  --color-secondary: #8c9191; /* Used for descriptions or subtitles */
-  --color-secondary-hover: #484a4a; /* Hover effect for secondary elements (e.g., underlines) */
-  --color-block-bg: #202222; /* Background color for block components */
-  --color-block-border: #3d3f40; /* Border color for block components */
-  --color-block-hover: #1f2020; /* Hover effect for block components */
-  --color-inblock-border: #2f3031; /* Border color for in-block components */
+  --color-primary: #e8e8e6;
+  /* Used for main titles */
+  --color-secondary: #8c9191;
+  /* Used for descriptions or subtitles */
+  --color-secondary-hover: #484a4a;
+  /* Hover effect for secondary elements (e.g., underlines) */
+  --color-block-bg: #202222;
+  /* Background color for block components */
+  --color-block-border: #3d3f40;
+  /* Border color for block components */
+  --color-block-hover: #1f2020;
+  /* Hover effect for block components */
+  --color-inblock-border: #2f3031;
+  /* Border color for in-block components */
 }
 
 body {
@@ -31,7 +38,7 @@ body {
 }
 
 .prose a:not(.anchor) {
-  @apply text-accent no-underline hover:underline;
+  @apply text-primary underline decoration-primary hover:text-accent hover:decoration-accent transition-all duration-200;
 }
 
 .prose a.anchor {

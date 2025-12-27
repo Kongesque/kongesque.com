@@ -5,13 +5,15 @@ import Link from "next/link";
 type PostItemProps = {
   post: MDXFileData;
   isSelected?: boolean;
+  className?: string;
 };
 
-export function PostItem({ post, isSelected }: PostItemProps) {
+export function PostItem({ post, isSelected, className }: PostItemProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="flex flex-col-reverse sm:flex-row items-start gap-4 py-5 group"
+      className={`flex flex-col-reverse sm:flex-row items-start gap-4 py-5 group ${className || ""
+        }`}
     >
       <div className="flex-1 min-w-0 w-full">
         <h2 className="text-lg sm:text-xl font-bold tracking-tight mb-2 mt-2 text-primary group-hover:text-accent leading-tight transition-colors duration-300">

@@ -10,7 +10,7 @@ export default async function BlogPage() {
 
   return (
     <main className="animate-fade-in-up">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-primary">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-primary">
         Blog
       </h1>
 

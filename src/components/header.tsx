@@ -33,7 +33,7 @@ export function Header() {
             <div>
 
 
-                <h1 className="text-2xl font-bold mb-4 animate-fade-in text-primary">
+                <h1 className="text-2xl sm:text-3xl font-bold mb-4 animate-fade-in text-primary">
                     <span className="inline-block">
                         Kongesque
                     </span>

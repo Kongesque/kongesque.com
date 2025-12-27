@@ -32,9 +32,8 @@ export function SectionList({
           <div key={item.title} className="group">
             <Link href={item.href} target="_blank">
               <h3 className="text-lg sm:text-xl font-semibold mb-2 text-primary group-hover:text-accent transition-colors duration-200">
-                {item.title}
+                {item.title} {item.period && <span className="text-secondary font-normal ml-2 text-sm">({item.period})</span>}
               </h3>
-              <p className="text-sm mb-2 text-secondary"> {item.role} {item.period && `(${item.period})`} </p>
               <p className="text-secondary">{item.description}</p>
             </Link>
           </div>

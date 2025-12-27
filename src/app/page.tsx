@@ -8,7 +8,7 @@ const projectItems = [
   {
     title: "zonenet",
     role: "creator",
-    period: "dec 2024",
+    period: "dec 2025",
     description:
       "Open-source AI video analytics platform with custom polygon zones (ROI), directional line crossing, and real-time object counting. Self-hosted and privacy-first.",
     href: "https://github.com/Kongesque/zonenet",

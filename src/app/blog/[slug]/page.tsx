@@ -111,7 +111,7 @@ export default async function Post({ params }: PageProps) {
       <hr className="border-t-2 border-line mb-8" />
 
       <div className="px-2">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-primary">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-primary">
           {post.metadata.title}
         </h1>
 

@@ -7,7 +7,7 @@ const projects = [
     description:
       "Open-source AI video analytics platform with custom polygon zones (ROI), directional line crossing, and real-time object counting. Self-hosted and privacy-first with support for 80+ COCO classes.",
     role: "creator",
-    period: "dec 2024",
+    period: "dec 2025",
     technologies: [
       "next.js 15",
       "fastapi",
@@ -40,11 +40,11 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <main className="animate-fade-in-up">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-primary">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-8 text-primary">
         Projects
       </h1>
 
-      <div className="space-y-12">
+      <div className="space-y-10">
         {projects.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}

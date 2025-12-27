@@ -73,8 +73,10 @@ export default async function Post({ params }: PageProps) {
               url: "https://www.kongesque.com",
               sameAs: [
                 "https://github.com/Kongesque",
-                "https://twitter.com/kongesque"
-              ]
+                "https://twitter.com/kongesque",
+                "https://www.youtube.com/@Kongesque"
+              ],
+              jobTitle: "Developer, Cardist, Maker"
             },
           }),
         }}

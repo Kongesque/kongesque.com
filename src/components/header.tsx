@@ -18,7 +18,7 @@ export function Header() {
 
     return (
         <header className="space-y-4">
-            <div className="relative w-full" style={{ height: "11rem" }}>
+            <div className="relative w-full" style={{ height: "12rem" }}>
                 <div
                     className={`absolute inset-0 transition-opacity duration-200 ease-out ${snakeReady ? "opacity-0 pointer-events-none" : "opacity-100"}`}
                     aria-hidden="true"
@@ -26,7 +26,7 @@ export function Header() {
                     <div className="w-full h-full bg-blockBg rounded-md border border-transparent" />
                 </div>
                 <div className={`h-full transition-opacity duration-200 ease-out ${snakeReady ? "opacity-100" : "opacity-0"}`}>
-                    <SnakeGame text={false} height="11rem" onReady={handleSnakeReady} />
+                    <SnakeGame text={false} height="12rem" onReady={handleSnakeReady} />
                 </div>
             </div>
 

@@ -2,17 +2,34 @@
 
 import Link from "next/link"
 // import SnakeGame from '@/components/snake';
+import { useCallback, useState } from "react";
 import dynamic from 'next/dynamic';
 
 const SnakeGame = dynamic(() => import('@/components/snake'), { ssr: false });
 
 export default function NotFound() {
+    const [snakeReady, setSnakeReady] = useState(false);
+
+    const handleSnakeReady = useCallback(() => {
+        setSnakeReady(true);
+    }, []);
+
     return (
-        <div className="flex flex-col items-center justify-center" style={{ height: `calc(100vh - 14rem)` }}>
-            <div className="text-center">
-                <SnakeGame text={true} height="14rem" />
+        <div className="flex flex-col items-center justify-center w-full" style={{ height: `calc(100vh - 14rem)` }}>
+            <div className="text-center w-full">
+                <div className="relative w-full mb-8" style={{ height: "24rem" }}>
+                    <div
+                        className={`absolute inset-0 transition-opacity duration-200 ease-out ${snakeReady ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+                        aria-hidden="true"
+                    >
+                        <div className="w-full h-full bg-blockBg rounded-md border border-transparent" />
+                    </div>
+                    <div className={`h-full transition-opacity duration-200 ease-out ${snakeReady ? "opacity-100" : "opacity-0"}`}>
+                        <SnakeGame text={true} height="24rem" onReady={handleSnakeReady} />
+                    </div>
+                </div>
                 <p className="mt-8 mb-4">
-                    Oops! Looks like you got lost. The snake couldn't find this page.
+                    Game over. You’ve hit a wall — this page is off the grid.
                 </p>
                 <Link
                     href="/"

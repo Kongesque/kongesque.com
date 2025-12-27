@@ -90,8 +90,10 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
 
                 const setBlocks = () => {
                     let a = 1;
+                    const isMobile = window.innerWidth < 768;
+                    const responsiveMaxBlocks = isMobile ? 400 : 900;
                     for (; ;) {
-                        if (Math.floor(p.width / a) * Math.floor(p.height / a) < maxBlocks) {
+                        if (Math.floor(p.width / a) * Math.floor(p.height / a) < responsiveMaxBlocks) {
                             blockSize = a;
                             blocksX = Math.floor(p.width / blockSize) - Math.floor(p.width / blockSize) % 2 - 2;
                             blocksY = Math.floor(p.height / blockSize) - Math.floor(p.height / blockSize) % 2;

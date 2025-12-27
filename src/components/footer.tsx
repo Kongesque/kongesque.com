@@ -15,7 +15,7 @@ export function Footer() {
             <Globe size={32} />
           </Link>
         </div>
-        © 2024 Kongesque - Stay curious, keep learning
+        © 2024 Kongesque - Unapologetically Curious
       </div>
     </footer>
   )

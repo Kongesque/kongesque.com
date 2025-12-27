@@ -51,33 +51,42 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     setup_i++;
                     let a = canvasRef.current;
                     if (!a) return;
-                    blockSize = Math.min(a.offsetWidth / blocksX, a.offsetHeight / blocksY);
-                    p.createCanvas(a.offsetWidth - blockSize, a.offsetHeight - blockSize).parent(a);
-                    p.pixelDensity(15);
-                    setBlocks();
+
+                    // Initial setup needs createCanvas.
+                    if (setup_i === 1) { // First time setup
+                        blockSize = Math.min(a.offsetWidth / blocksX, a.offsetHeight / blocksY);
+                        p.createCanvas(a.offsetWidth - blockSize, a.offsetHeight - blockSize).parent(a);
+                        p.pixelDensity(1);
+                        setBlocks();
+                    }
+
+                    // Recalculate everything based on current p.width/height (which might remain same or change)
                     blockSize = Math.min(p.width / blocksX, p.height / blocksY);
                     outlineLength = blockSize / 15;
-                    yOffset = xOffset = 0;
-                    if (setup_i == 1) p.setup();
+                    yOffset = xOffset = 0; // Centering usually handled in draw translation or here? 
+
+                    // If this is a RESTART (game over or full resize reset):
                     s = new Snake(p);
                     hc = new HamiltonianCycle(blocksX, blocksY, p);
                     s.resetOnHamiltonian(hc.cycle);
                     p.frameRate(30);
 
-                    let isSpeedUp = false;
-                    const toggleSpeed = () => {
-                        isSpeedUp = !isSpeedUp;
-                        speedMultiplier = isSpeedUp ? 10 : 1;
-                    };
-
-                    if (a) {
-                        a.addEventListener('click', toggleSpeed);
-                        a.style.cursor = 'pointer';
-                    }
-
-                    window.addEventListener("resize", resize);
                     notifyReady();
                 };
+
+                // Moved out of setup
+                let isSpeedUp = false;
+                const toggleSpeed = () => {
+                    isSpeedUp = !isSpeedUp;
+                    speedMultiplier = isSpeedUp ? 10 : 1;
+                };
+
+                // Initialize listeners once
+                let container = canvasRef.current;
+                if (container) {
+                    container.addEventListener('click', toggleSpeed);
+                    container.style.cursor = 'pointer';
+                }
 
                 const setBlocks = () => {
                     let a = 1;
@@ -90,23 +99,36 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                         } else a++;
                     }
                 };
-                const resize = () => {
-                    if (typeof window !== 'undefined') {
-                        if (window.innerWidth === previousWidth) return;
-                        previousWidth = window.innerWidth;
-                    }
+
+                const handleResize = () => {
+                    let a = canvasRef.current;
+                    if (!a || typeof window === 'undefined') return;
+
+                    if (window.innerWidth === previousWidth) return;
+                    previousWidth = window.innerWidth;
+
+                    const oldBlocksX = blocksX;
+                    const oldBlocksY = blocksY;
+
+                    p.resizeCanvas(a.offsetWidth, a.offsetHeight);
+                    setBlocks();
+                    p.resizeCanvas(a.offsetWidth - blockSize, a.offsetHeight - blockSize);
+
                     blockSize = Math.min(p.width / blocksX, p.height / blocksY);
                     outlineLength = blockSize / 15;
                     xOffset = (p.width - blockSize * blocksX) / 2;
                     yOffset = (p.height - blockSize * blocksY) / 2;
-                    p.setup();
+
+                    if (blocksX !== oldBlocksX || blocksY !== oldBlocksY) {
+                        p.setup();
+                    }
                 };
+
                 let resizeDelay: any;
-                const windowResized = () => {
+                p.windowResized = () => {
                     clearTimeout(resizeDelay);
-                    resizeDelay = setTimeout(resize, 500);
+                    resizeDelay = setTimeout(handleResize, 500);
                 };
-                p.windowResized = windowResized;
                 p.draw = () => {
                     if (!pause) {
                         p.background(bg);

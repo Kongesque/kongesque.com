@@ -2,25 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* THE STOIC DREAMER — Retro, Surreal, Philosopher, Teachy, Endure */
 :root {
-  --background: #191a1a;
-  --color-line: #2b2c2d;
-  --color-accent: #21b8cd;
-  --color-accent-hover: #2397a8;
-  --color-primary: #e8e8e6;
-  /* Used for main titles */
-  --color-secondary: #8c9191;
-  /* Used for descriptions or subtitles */
-  --color-secondary-hover: #484a4a;
-  /* Hover effect for secondary elements (e.g., underlines) */
-  --color-block-bg: #202222;
-  /* Background color for block components */
-  --color-block-border: #3d3f40;
-  /* Border color for block components */
-  --color-block-hover: #1f2020;
-  /* Hover effect for block components */
-  --color-inblock-border: #2f3031;
-  /* Border color for in-block components */
+  --background: #151716;
+  /* Stone */
+  --color-line: #272a2b;
+  /* Ash */
+  --color-accent: #2B9EA8;
+  /* Sage */
+  --color-accent-hover: #237D86;
+  /* Patina */
+  --color-primary: #E6E4DF;
+  /* Parchment */
+  --color-secondary: #8A8E8C;
+  /* Slate */
+  --color-secondary-hover: #455050;
+  /* Dusk */
+  --color-block-bg: #1C1F1E;
+  /* Obsidian */
+  --color-block-border: #3A4240;
+  /* Jade */
+  --color-block-hover: #1A1D1C;
+  /* Abyss */
+  --color-inblock-border: #2D3433;
+  /* Moss */
 }
 
 body {

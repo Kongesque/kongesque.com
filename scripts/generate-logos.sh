@@ -22,9 +22,9 @@ TMP_DIR="/tmp"
 # Site branding
 SITE_NAME="kongesque"
 SITE_DESC="Developer, cardist and maker of things"
-BG_COLOR="#191a1a"
-TITLE_COLOR="#ffffff"
-DESC_COLOR="#8c9191"
+BG_COLOR="#151716"
+TITLE_COLOR="#E6E4DF"
+DESC_COLOR="#8A8E8C"
 
 echo -e "${BLUE}🎨 Generating all logo assets from ${SVG_SOURCE}...${NC}\n"
 

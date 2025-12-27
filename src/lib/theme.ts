@@ -1,13 +1,13 @@
 export const COLORS = {
-    background: "#191a1a",
-    line: "#2b2c2d",
-    accent: "#21b8cd",
-    accentHover: "#2397a8",
-    primary: "#e8e8e6",
-    secondary: "#8c9191",
-    secondaryHover: "#484a4a",
-    blockBg: "#202222",
-    blockBorder: "#3d3f40",
-    blockHover: "#1f2020",
-    inblockBorder: "#2f3031",
+    background: "#151716", // Stone
+    line: "#272a2b", // Ash
+    accent: "#2B9EA8", // Sage
+    accentHover: "#237D86", // Patina
+    primary: "#E6E4DF", // Parchment
+    secondary: "#8A8E8C", // Slate
+    secondaryHover: "#455050", // Dusk
+    blockBg: "#1C1F1E", // Obsidian
+    blockBorder: "#3A4240", // Jade
+    blockHover: "#1A1D1C", // Abyss
+    inblockBorder: "#2D3433", // Moss
 } as const;

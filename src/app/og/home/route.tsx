@@ -42,7 +42,7 @@ export async function GET(request: Request) {
         }}
       >
         <img
-          src="https://www.kongesque.com/echo-2.svg"
+          src="https://www.kongesque.com/echo-3.svg"
           style={{
             position: "absolute",
             bottom: "40px",

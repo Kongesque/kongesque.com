@@ -55,7 +55,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     // Initial setup needs createCanvas.
                     if (setup_i === 1) { // First time setup
                         blockSize = Math.min(a.offsetWidth / blocksX, a.offsetHeight / blocksY);
-                        p.createCanvas(a.offsetWidth - blockSize, a.offsetHeight - blockSize).parent(a);
+                        p.createCanvas(a.offsetWidth, a.offsetHeight).parent(a);
                         p.pixelDensity(10);
                         setBlocks();
                     }
@@ -95,7 +95,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     for (; ;) {
                         if (Math.floor(p.width / a) * Math.floor(p.height / a) < responsiveMaxBlocks) {
                             blockSize = a;
-                            blocksX = Math.floor(p.width / blockSize) - Math.floor(p.width / blockSize) % 2 - 2;
+                            blocksX = Math.floor(p.width / blockSize) - Math.floor(p.width / blockSize) % 2;
                             blocksY = Math.floor(p.height / blockSize) - Math.floor(p.height / blockSize) % 2;
                             break;
                         } else a++;
@@ -114,7 +114,6 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
 
                     p.resizeCanvas(a.offsetWidth, a.offsetHeight);
                     setBlocks();
-                    p.resizeCanvas(a.offsetWidth - blockSize, a.offsetHeight - blockSize);
 
                     blockSize = Math.min(p.width / blocksX, p.height / blocksY);
                     outlineLength = blockSize / 15;
@@ -625,7 +624,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
     };
 
     return (
-        <div className="w-full bg-blockBg rounded-md hover:border-[1px] border-blockBorder" style={heightStyle} id="snake-game-container">
+        <div className="w-full group transition-all duration-300 border border-blockBorder hover:border-accent bg-blockBg hover:bg-blockHover rounded-lg" style={heightStyle} id="snake-game-container">
             <div className="flex justify-center items-center h-full" id="snake-game" ref={canvasRef} style={{ userSelect: 'none' }}></div>
         </div>
     );

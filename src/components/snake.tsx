@@ -56,7 +56,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     if (setup_i === 1) { // First time setup
                         blockSize = Math.min(a.offsetWidth / blocksX, a.offsetHeight / blocksY);
                         p.createCanvas(a.offsetWidth - blockSize, a.offsetHeight - blockSize).parent(a);
-                        p.pixelDensity(1);
+                        p.pixelDensity(10);
                         setBlocks();
                     }
 

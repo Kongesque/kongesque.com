@@ -39,14 +39,13 @@ export async function GET(request: Request) {
         }}
       >
         <img
-          src="https://www.kongesque.com/kongesque.jpg"
+          src="https://www.kongesque.com/echo-2.svg"
           style={{
             position: "absolute",
             bottom: "40px",
             right: "40px",
             width: "80px",
             height: "80px",
-            borderRadius: "50%",
           }}
         />
 

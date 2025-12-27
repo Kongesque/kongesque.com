@@ -42,3 +42,5 @@ next-env.d.ts
 
 # GitHub workflows
 .github/
+
+/scripts/generate-logos.sh

@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Globe } from 'lucide-react';
+import { EchoLogo } from './echo-logo';
 
 export function Navbar() {
     return (
@@ -11,7 +11,7 @@ export function Navbar() {
                     aria-label="Home"
                     className="text-accent flex items-center space-x-1 hover:text-accentHover group transition-colors duration-300"
                 >
-                    <Globe size={32} />
+                    <EchoLogo size={32} />
                     <span className="font-bold text-xl text-primary hidden sm:inline group-hover:text-accentHover transition-colors duration-300">kongesque</span>
                 </Link>
             </div>

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Globe } from 'lucide-react';
+import { EchoLogo } from './echo-logo';
 
 export function Footer() {
   return (
@@ -12,7 +12,7 @@ export function Footer() {
             aria-label="Home"
             className="flex items-center space-x-1 hover:text-accent transition-colors duration-300"
           >
-            <Globe size={32} />
+            <EchoLogo size={32} />
           </Link>
         </div>
         © 2024 Kongesque - Unapologetically Curious

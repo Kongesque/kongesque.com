@@ -147,8 +147,8 @@ echo -e "${GREEN}🖼️  Generating opengraph-image.png (1200×630)...${NC}"
 rsvg-convert -w 300 -h 300 "$SVG_SOURCE" > "$TMP_DIR/echo-white.png"
 magick -size 1200x630 "xc:${BG_COLOR}" \
     "$TMP_DIR/echo-white.png" -gravity center -geometry +0-50 -composite \
-    -pointsize 60 -fill "${TITLE_COLOR}" -gravity center -annotate +0+180 "${SITE_NAME}" \
-    -pointsize 28 -fill "${DESC_COLOR}" -annotate +0+240 "${SITE_DESC}" \
+    -font "JetBrains-Mono" -pointsize 60 -fill "${TITLE_COLOR}" -gravity center -annotate +0+180 "${SITE_NAME}" \
+    -font "JetBrains-Mono" -pointsize 28 -fill "${DESC_COLOR}" -annotate +0+240 "${SITE_DESC}" \
     "$OUTPUT_DIR/opengraph-image.png"
 
 # 7. Optimize all PNG files

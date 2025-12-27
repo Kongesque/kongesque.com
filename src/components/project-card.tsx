@@ -25,7 +25,7 @@ export function ProjectCard({
           <h2 className="text-lg sm:text-xl font-bold text-primary group-hover:text-accent transition-colors">
             {title} {period && <span className="text-secondary font-normal ml-2 text-sm">({period})</span>}
           </h2>
-          <ArrowUpRight className="w-5 h-5 text-secondary group-hover:text-accent transition-colors" />
+          <ArrowUpRight className="w-5 h-5 flex-shrink-0 text-secondary group-hover:text-accent transition-colors" />
         </div>
 
         <p className="text-secondary mb-6">{description}</p>

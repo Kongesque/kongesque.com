@@ -46,6 +46,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
             };
 
             const sketch = (p: p5) => {
+                let previousWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
                 p.setup = () => {
                     setup_i++;
                     let a = canvasRef.current;
@@ -90,6 +91,10 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                     }
                 };
                 const resize = () => {
+                    if (typeof window !== 'undefined') {
+                        if (window.innerWidth === previousWidth) return;
+                        previousWidth = window.innerWidth;
+                    }
                     blockSize = Math.min(p.width / blocksX, p.height / blocksY);
                     outlineLength = blockSize / 15;
                     xOffset = (p.width - blockSize * blocksX) / 2;

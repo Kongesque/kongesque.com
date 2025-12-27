@@ -18,9 +18,28 @@ async function loadGoogleFont(font: string, text: string) {
   throw new Error("failed to load font data")
 }
 
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "")
+}
+
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
+  const { searchParams, origin } = new URL(request.url)
   const title = searchParams.get("title") ?? "Kongesque's Blog"
+
+  // Try to find a matching cover image
+  const slug = slugify(title)
+  const imageUrl = `${origin}/cover/${slug}.jpg`
+
+  let hasImage = false
+  try {
+    const res = await fetch(imageUrl, { method: "HEAD" })
+    hasImage = res.status === 200
+  } catch (e) {
+    // Ignore error, fallback to default
+  }
 
   return new ImageResponse(
     (
@@ -34,10 +53,36 @@ export async function GET(request: Request) {
           justifyContent: "center",
           backgroundColor: COLORS.background,
           fontFamily: "JetBrains Mono",
-          padding: "40px",
           position: "relative",
         }}
       >
+        {hasImage && (
+          <img
+            src={imageUrl}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        )}
+
+        {/* Overlay */}
+        {hasImage && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0,0,0,0.6)",
+            }}
+          />
+        )}
         <img
           src="https://www.kongesque.com/echo-3.svg"
           style={{
@@ -52,30 +97,43 @@ export async function GET(request: Request) {
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            gap: "12px",
-            maxWidth: "90%",
+            justifyContent: "center",
+            padding: "40px",
+            width: "100%",
+            height: "100%",
           }}
         >
-          <h1
+          <div
             style={{
-              fontSize: 48,
-              color: COLORS.primary,
-              margin: 0,
-              lineHeight: 1.2,
-              wordBreak: "break-word",
-              overflowWrap: "break-word",
-              maxWidth: "100%",
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              maxWidth: "90%",
             }}
           >
-            {title}
-          </h1>
+            <h1
+              style={{
+                fontSize: 48,
+                color: COLORS.primary,
+                margin: 0,
+                lineHeight: 1.2,
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+                maxWidth: "100%",
+                textShadow: hasImage ? "0 2px 10px rgba(0,0,0,0.5)" : "none",
+              }}
+            >
+              {title}
+            </h1>
+          </div>
         </div>
       </div>
     ),
     {
       width: 1200,
-      height: 600,
+      height: 630,
       fonts: [
         {
           name: "JetBrains Mono",

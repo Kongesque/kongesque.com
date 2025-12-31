@@ -45,12 +45,8 @@ export function Header() {
 
                 <div className="flex gap-1 sm:gap-4 text-secondary text-sm flex-col sm:flex-row">
                     <div className="flex items-center gap-2">
-                        <Landmark className="w-4 h-4" />
-                        Computer Science @NDHU
-                    </div>
-                    <div className="flex items-center gap-2">
                         <MapPin className="w-4 h-4" />
-                        Taipei, Taiwan
+                        BKK, Thailand
                     </div>
                 </div>
             </div>

@@ -4,32 +4,54 @@ import { getPostBySlug } from "@/lib/blog";
 import CopyLinkButton from '@/components/share-button';
 import { Footer } from '@/components/footer';
 import Image from "next/image";
+import type { Metadata } from "next";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: PageProps) {
+const baseUrl = "https://www.kongesque.com";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const slug = (await params).slug;
   const post = getPostBySlug(slug);
   if (!post) {
-    return;
+    return {};
   }
 
-  const publishedTime = formatDate(post.metadata.date);
+  const publishedTime = post.metadata.date;
+  const ogImageUrl = `${baseUrl}/og/blog?title=${encodeURIComponent(post.metadata.title)}&top=${encodeURIComponent(formatDate(publishedTime))}`;
 
   return {
     title: post.metadata.title,
     description: post.metadata.description,
+    keywords: ["blog", "kongesque", post.metadata.title.toLowerCase()],
+    authors: [{ name: "Kongesque", url: baseUrl }],
+    alternates: {
+      canonical: `${baseUrl}/blog/${post.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
     openGraph: {
       title: post.metadata.title,
       description: post.metadata.description,
       publishedTime,
+      modifiedTime: publishedTime,
       type: "article",
-      url: `https://www.kongesque.com/blog/${post.slug}`,
+      url: `${baseUrl}/blog/${post.slug}`,
+      siteName: "kongesque",
+      locale: "en_US",
+      authors: ["Kongesque"],
       images: [
         {
-          url: `https://www.kongesque.com/og/blog?title=${post.metadata.title}`,
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.metadata.title,
         },
       ],
     },
@@ -38,11 +60,15 @@ export async function generateMetadata({ params }: PageProps) {
       description: post.metadata.description,
       card: "summary_large_image",
       creator: "@kongesque",
-      images: [
-        `https://www.kongesque.com/og/blog?title=${post.metadata.title}&top=${publishedTime}`,
-      ],
+      site: "@kongesque",
+      images: [ogImageUrl],
     },
   };
+}
+
+// Word count helper for schema
+function getWordCount(content: string): number {
+  return content.split(/\s+/).filter(Boolean).length;
 }
 
 export default async function Post({ params }: PageProps) {
@@ -52,33 +78,85 @@ export default async function Post({ params }: PageProps) {
     notFound();
   }
 
+  const wordCount = getWordCount(post.content);
+  const ogImageUrl = `${baseUrl}/og/blog?title=${encodeURIComponent(post.metadata.title)}&top=${encodeURIComponent(formatDate(post.metadata.date))}`;
+
+  // BlogPosting JSON-LD
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/${post.slug}`,
+    },
+    headline: post.metadata.title,
+    description: post.metadata.description,
+    image: ogImageUrl,
+    url: `${baseUrl}/blog/${post.slug}`,
+    datePublished: post.metadata.date,
+    dateModified: post.metadata.date,
+    wordCount,
+    articleSection: "Blog",
+    inLanguage: "en-US",
+    author: {
+      "@type": "Person",
+      name: "Kongesque",
+      url: baseUrl,
+      sameAs: [
+        "https://github.com/Kongesque",
+        "https://twitter.com/kongesque",
+        "https://x.com/kongesque",
+        "https://www.youtube.com/@Kongesque",
+        "https://www.reddit.com/user/kongesque"
+      ],
+      jobTitle: "Developer, Cardist, Maker"
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Kongesque",
+      url: baseUrl,
+    },
+  };
+
+  // Breadcrumb JSON-LD
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${baseUrl}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.metadata.title,
+      },
+    ],
+  };
+
   return (
     <section className="animate-fade-in-up rounded-lg">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: post.metadata.title,
-            datePublished: post.metadata.date,
-            dateModified: post.metadata.date,
-            description: post.metadata.description,
-            image: `https://kongesque.com/og/blog?title=${post.metadata.title}&top=${formatDate(post.metadata.date)}`,
-            url: `https://kongesque.com/blog/${post.slug}`,
-            author: {
-              "@type": "Person",
-              name: "Kongesque",
-              url: "https://www.kongesque.com",
-              sameAs: [
-                "https://github.com/Kongesque",
-                "https://twitter.com/kongesque",
-                "https://www.youtube.com/@Kongesque"
-              ],
-              jobTitle: "Developer, Cardist, Maker"
-            },
-          }),
+          __html: JSON.stringify(blogPostingSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
         }}
       />
 

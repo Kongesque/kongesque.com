@@ -11,6 +11,10 @@ const links = [
         name: "github",
         href: "https://github.com/Kongesque",
     },
+    {
+        name: "x.com",
+        href: "https://x.com/kongesque",
+    },
 ]
 
 export function LinksSection() {

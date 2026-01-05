@@ -1,0 +1,67 @@
+---
+title: "Introducing Locus: The Open Source Vision Analytics Engine"
+description: "Turn RTSP streams into queryable data with Locus, the privacy-first, open-source vision analytics engine."
+date: "2025-12-27"
+---
+
+> [!NOTE]
+> Note: This project was previously known as ZoneNet. It has been rebranded to Locus to reflect its focus on spatial intelligence.
+
+I've always been fascinated by computer vision, but the existing tools always felt like a compromise. You either pay exorbitant monthly fees for enterprise software, or you hand over your video feeds to a cloud server you don't control.
+
+That didn't sit right with me. I wanted something that was powerful, looked good, and most importantly **Self-Hosted Infrastructure**.
+
+**I wanted the power of Google Analytics, but for the physical world, running entirely on my own metal (Self-Hosted & Privacy-First).**
+
+So, I built **Locus**.
+
+[Check it out on GitHub](https://github.com/Kongesque/locus)
+
+## Turn RTSP streams into queryable data
+
+Locus is an open-source project that brings professional-grade object counting and video analytics to **EVERYONE**. It's not just a script; it's a full-stack application designed to be easy to set up and even easier to use.
+
+Under the hood, it’s combining the incredible speed of **YOLO11** with **ByteTrack** for tracking. But you don't need to be an ML engineer to use it. You just spin it up, connect a camera, and start gathering data.
+
+## The "Cool" Stuff (Features)
+
+### 🎨 Draw Your Own Zones
+This is my favorite part. Every camera angle is unique, right? A reckless driver in a parking lot or a customer walking down a specific aisle—you can't capture that with a generic box.
+Locus lets you draw customizable **polygon zones** directly on the video feed. You can count exactly what happens in *that specific corner* of the frame.
+
+### 🔒 Privacy by Default
+I'm a huge believer in data privacy. With Locus, **what happens on your network, stays on your network.**
+There is no "cloud upload" feature. All processing happens locally on your CPU or GPU. Whether you're monitoring your home, a retail store, or a private facility, your footage never leaves your hardware.
+
+### ⚡ Real-Time, For Real
+We're using **Next.js 15** for the dashboard, and it feels *snappy*. You get instant feedback on tracking, current occupancy counts, and dwell times. It’s mesmerizing to watch the analytics update live as objects move through the frame.
+
+## What Can You Actually Do With It?
+
+I built this to be versatile. Here are a few improved ways people are using it:
+
+*   **Retail Analytics:** analyzing which store displays get the most attention (dwell time).
+*   **Smart Home:** counting how many cars pass by your driveway per hour.
+*   **Safety:** creating "danger zones" around machinery that trigger alerts if someone steps inside.
+*   **Agriculture:** setting up "virtual fences" to monitor livestock or detect predators on specific parts of a farm.
+*   **Child Safety:** detecting if a child enters a pool area when no adults are detected nearby.
+*   **Crowd Management:** triggering alerts when a zone exceeds a specific density of people.
+*   **Logistics & Warehousing:** tracking truck arrival/departure times and monitoring loading dock occupancy.
+*   **Urban Planning:** analyzing usage patterns of bike lanes versus pedestrian pathways to improve city infrastructure.
+*   **Manufacturing:** counting items on a conveyor belt to verify throughput or detect bottlenecks in real-time.
+*   **Wildlife Monitoring:** non-invasive tracking of animal crossings in nature reserves or backyards.
+
+## The Tech Stack
+
+For my fellow developers, here is what makes it tick:
+
+*   **Frontend:** Next.js 15 (App Router), React 19, Tailwind CSS v4
+*   **Backend:** FastAPI (Python 3.10+)
+*   **AI:** YOLO11, ByteTrack, OpenCV
+*   **Infrastructure:** Fully Dockerized
+
+## Give It a Spin
+
+Locus is open source and free. I'd love for you to try it out, break it, and tell me what you think.
+
+Happy counting!

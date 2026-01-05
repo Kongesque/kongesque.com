@@ -40,7 +40,7 @@ export function Header() {
                 </h1>
 
                 <p className="leading-relaxed animate-fade-in-up text-primary mb-2">
-                    is a software engineer, creative thinker, and lifelong learner. Currently crafting <a href="https://github.com/Kongesque/zonenet" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent transition-colors">ZoneNet</a>.
+                    is a software engineer, creative thinker, and lifelong learner. Currently crafting <a href="https://github.com/Kongesque/locus" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent transition-colors">Locus</a>.
                 </p>
 
                 <div className="flex gap-1 sm:gap-4 text-secondary text-sm flex-col sm:flex-row">

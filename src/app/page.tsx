@@ -6,12 +6,12 @@ import { Footer } from "@/components/footer"
 
 const projectItems = [
   {
-    title: "zonenet",
+    title: "locus",
     role: "creator",
     period: "dec 2025",
     description:
-      "Open-source AI video analytics platform with custom polygon zones (ROI), directional line crossing, and real-time object counting. Self-hosted and privacy-first.",
-    href: "https://github.com/Kongesque/zonenet",
+      "A self-hosted intelligence layer that transforms video streams into queryable data. Built with YOLO11 to run 100% offline—delivering privacy-first spatial insights for the private edge.",
+    href: "https://github.com/Kongesque/locus",
   },
   {
     title: "custom-region-object-counter-YOLOV8",

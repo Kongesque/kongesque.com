@@ -22,7 +22,7 @@ export default function NotFound() {
                         className={`absolute inset-0 transition-opacity duration-200 ease-out ${snakeReady ? "opacity-0 pointer-events-none" : "opacity-100"}`}
                         aria-hidden="true"
                     >
-                        <div className="w-full h-full bg-blockBg rounded-md border border-transparent" />
+                        <div className="w-full h-full bg-blockBg rounded-lg border border-blockBorder p-2" />
                     </div>
                     <div className={`h-full transition-opacity duration-200 ease-out ${snakeReady ? "opacity-100" : "opacity-0"}`}>
                         <SnakeGame text={true} height="24rem" onReady={handleSnakeReady} />

@@ -2,6 +2,21 @@
 import React, { useRef, useEffect, useState } from 'react';
 import type p5 from 'p5';
 
+// Cache CSS variables at module scope to avoid recomputing on every mount
+let cachedColors: { bg: string; primary: string; secondary: string; accent: string } | null = null;
+
+const getColors = () => {
+    if (cachedColors) return cachedColors;
+    const style = getComputedStyle(document.documentElement);
+    cachedColors = {
+        bg: style.getPropertyValue('--color-block-bg'),
+        primary: style.getPropertyValue('--color-primary'),
+        secondary: style.getPropertyValue('--color-secondary'),
+        accent: style.getPropertyValue('--color-accent'),
+    };
+    return cachedColors;
+};
+
 interface SnakeGameProps {
     text?: boolean;
     height?: string;
@@ -13,10 +28,7 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
     const [isSpeedUp, setIsSpeedUp] = useState(false);
 
     useEffect(() => {
-        const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-block-bg');
-        const primary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary');
-        const secondary = getComputedStyle(document.documentElement).getPropertyValue('--color-secondary');
-        const accent = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');
+        const { bg, primary, secondary, accent } = getColors();
 
         let p5Instance: p5 | undefined;
 

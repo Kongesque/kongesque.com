@@ -17,6 +17,9 @@ const getColors = () => {
     return cachedColors;
 };
 
+// Cache Hamiltonian cycles by grid dimensions to avoid recomputing
+const cycleCache = new Map<string, any[]>();
+
 interface SnakeGameProps {
     text?: boolean;
     height?: string;
@@ -81,7 +84,27 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
 
                     // If this is a RESTART (game over or full resize reset):
                     s = new Snake(p);
-                    hc = new HamiltonianCycle(blocksX, blocksY, p);
+
+                    // Use cached cycle if available for these dimensions
+                    const cacheKey = `${blocksX}x${blocksY}`;
+                    if (cycleCache.has(cacheKey)) {
+                        hc = { cycle: cycleCache.get(cacheKey)!, getNodeNo: null, getPossiblePositionsFrom: null };
+                        // Need to recreate the helper methods
+                        hc.getNodeNo = (a: any, b: any) => {
+                            for (let c = 0; c < hc.cycle.length; c++) if (hc.cycle[c].x === a && hc.cycle[c].y === b) return c;
+                            return -1;
+                        };
+                        hc.getPossiblePositionsFrom = (a: any, b: any) => {
+                            const node = hc.cycle[hc.getNodeNo(a, b)];
+                            let positions: number[] = [];
+                            for (let c of node.edges) positions.push(hc.getNodeNo(c.x, c.y));
+                            return positions;
+                        };
+                    } else {
+                        hc = new HamiltonianCycle(blocksX, blocksY, p);
+                        cycleCache.set(cacheKey, hc.cycle);
+                    }
+
                     s.resetOnHamiltonian(hc.cycle);
                     p.frameRate(30);
 

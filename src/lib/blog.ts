@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+import { cache } from "react"
 
 export type Metadata = {
   title: string
@@ -16,9 +17,9 @@ export type MDXFileData = FrontmatterParseResult & {
   slug: string
 }
 
-export function getPosts(): MDXFileData[] {
+export const getPosts = cache(() => {
   return getMDXData(path.join(process.cwd(), "src", "posts"))
-}
+})
 
 export function getPostBySlug(slug: string): MDXFileData | null {
   return getPosts().find((post) => post.slug === slug) ?? null

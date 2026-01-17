@@ -46,7 +46,7 @@ export function Header() {
                 <div className="flex gap-1 sm:gap-4 text-secondary text-sm flex-col sm:flex-row">
                     <div className="flex items-center gap-2">
                         <MapPin className="w-4 h-4" />
-                        BKK, Thailand
+                        Taipei, Taiwan
                     </div>
                 </div>
             </div>

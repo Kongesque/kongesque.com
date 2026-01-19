@@ -199,6 +199,8 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
                         p.fill(0);
                         s.show({ primary, accent });
                         for (let a = 0; a < speedMultiplier; a++) s.update();
+                        // Reset game when snake wins (fills the entire grid)
+                        if (s.weWin) p.setup();
                         p.pop();
                     }
                 };

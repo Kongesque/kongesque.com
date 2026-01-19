@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from 'react';
 import type p5 from 'p5';
+import * as Tone from 'tone';
 import { Snake, HamiltonianCycle, HamiltonianContext } from '@/lib/snake-game';
 
 // Cache CSS variables at module scope to avoid recomputing on every mount
@@ -118,10 +119,33 @@ export default function SnakeGame({ text = false, height = '12rem', onReady }: S
 
                 // Moved out of setup
                 let speedUp = false;
+                let dropSynth: Tone.Synth | null = null;
+                let dropReverb: Tone.Reverb | null = null;
+
+                const playDropSound = async () => {
+                    await Tone.start();
+                    Tone.Destination.volume.value = -30;
+
+                    if (!dropSynth) {
+                        dropReverb = new Tone.Reverb({
+                            decay: 2.5,
+                            wet: 0.6,
+                        }).toDestination();
+
+                        dropSynth = new Tone.Synth({
+                            oscillator: { type: 'sine' },
+                            envelope: { attack: 0.001, decay: 0.4, sustain: 0, release: 0.3 },
+                        }).connect(dropReverb);
+                    }
+
+                    dropSynth.triggerAttackRelease('E5', '16n');
+                };
+
                 const toggleSpeed = () => {
                     speedUp = !speedUp;
                     speedMultiplier = speedUp ? 10 : 1;
                     setIsSpeedUp(speedUp);
+                    playDropSound();
                 };
 
                 // Initialize listeners once

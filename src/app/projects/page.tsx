@@ -22,7 +22,7 @@ const projects = [
   {
     title: "lemon & herbs",
     description:
-      "Web branding website for a local business. Features bilingual support (Thai/English) and a product showcase.",
+      "A bilingual brand showcase for a nursery in Hua Hin. Features a minimalist, nature-centric UI with seamless localization (TH/EN) to highlight artisanal lemon trees and herbs.",
     role: "creator",
     period: "nov 2025",
     technologies: [

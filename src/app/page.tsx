@@ -14,6 +14,14 @@ const projectItems = [
     href: "https://github.com/Kongesque/locus",
   },
   {
+    title: "lemon & herbs",
+    role: "creator",
+    period: "nov 2025",
+    description:
+      "Web branding website for a local business. Features bilingual support (Thai/English) and a product showcase.",
+    href: "https://www.lemonnherbs.com/",
+  },
+  {
     title: "custom-region-object-counter-YOLOV8",
     role: "creator",
     period: "mar 2024 - may 2024",

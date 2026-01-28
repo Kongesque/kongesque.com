@@ -20,6 +20,19 @@ const projects = [
     href: "https://github.com/Kongesque/locus",
   },
   {
+    title: "lemon & herbs",
+    description:
+      "Web branding website for a local business. Features bilingual support (Thai/English) and a product showcase.",
+    role: "creator",
+    period: "nov 2025",
+    technologies: [
+      "next.js",
+      "tailwind",
+      "i18n",
+    ],
+    href: "https://www.lemonnherbs.com/",
+  },
+  {
     title: "custom-region-object-counter-YOLOV8",
     description:
       "A web app for detecting and counting objects in videos using YOLOv8 for detection and ByteTrack for tracking, with customizable regions of interest (ROIs) function.",

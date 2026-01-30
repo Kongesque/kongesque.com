@@ -35,14 +35,14 @@ const projects = [
   {
     title: "flow free solver",
     description:
-      "A web-based solver for the Flow Free puzzle game. Features a responsive brutalist UI, background worker processing, and step-by-step visualization of the solution algorithms.",
+      "A web-based solver for the Flow Free puzzle game. Powered by C++ Heuristic BFS, SAT (Z3) & A* search.",
     role: "creator",
     period: "nov 2024",
     technologies: [
-      "next.js",
+      "vite",
       "typescript",
-      "web workers",
-      "brutalist ui",
+      "webassembly",
+      "SAT Z3",
     ],
     href: "https://flow.kongesque.com/",
   },

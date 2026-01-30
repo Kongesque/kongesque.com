@@ -33,6 +33,20 @@ const projects = [
     href: "https://www.lemonnherbs.com/",
   },
   {
+    title: "flow free solver",
+    description:
+      "A web-based solver for the Flow Free puzzle game. Features a responsive brutalist UI, background worker processing, and step-by-step visualization of the solution algorithms.",
+    role: "creator",
+    period: "nov 2024",
+    technologies: [
+      "next.js",
+      "typescript",
+      "web workers",
+      "brutalist ui",
+    ],
+    href: "https://flow.kongesque.com/",
+  },
+  {
     title: "custom-region-object-counter-YOLOV8",
     description:
       "A web app for detecting and counting objects in videos using YOLOv8 for detection and ByteTrack for tracking, with customizable regions of interest (ROIs) function.",
@@ -57,7 +71,7 @@ export default function ProjectsPage() {
         Projects
       </h1>
 
-      <div className="space-y-10">
+      <div className="space-y-6">
         {projects.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}
